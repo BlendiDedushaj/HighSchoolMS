@@ -667,19 +667,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\ebuda\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\HighSchoolMS\\api\\HS1\\HS1\\HS1.csproj",
+      "projectUniqueName": "C:\\Users\\ebuda\\OneDrive\\Desktop\\HighSchoolMS\\api\\HS1\\HS1\\HS1.csproj",
       "projectName": "HS1",
-      "projectPath": "C:\\Users\\User\\Desktop\\HighSchoolMS\\api\\HS1\\HS1\\HS1.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\HighSchoolMS\\api\\HS1\\HS1\\obj\\",
+      "projectPath": "C:\\Users\\ebuda\\OneDrive\\Desktop\\HighSchoolMS\\api\\HS1\\HS1\\HS1.csproj",
+      "packagesPath": "C:\\Users\\ebuda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ebuda\\OneDrive\\Desktop\\HighSchoolMS\\api\\HS1\\HS1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ebuda\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -1,0 +1,15 @@
+.navbarApp {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+
+}
+
+nav {
+    display: flex;
+    flex:1
+    justify-content: space-between;
+
+}

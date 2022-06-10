@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/login.css";
+import "../styles/loginn.css";
 
-function Login() {
+function LoginN() {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -10,15 +10,15 @@ function Login() {
   // User Login info
   const database = [
     {
-      username: "a@prof.com",
+      username: "a@student.com",
       password: "Pass12345",
     },
     {
-      username: "b@prof.com",
+      username: "b@student.com",
       password: "Pass12345",
     },
     {
-      username: "c@prof.com",
+      username: "c@student.com",
       password: "Pass12345",
     },
   ];
@@ -60,7 +60,7 @@ function Login() {
   // JSX code for login form
   const renderForm = (
     <div className="form">
-    <img src="https://e7.pngegg.com/pngimages/265/858/png-clipart-computer-icons-teacher-professor-education-lecturer-teacher-angle-logo.png" alt="Girl in a jacket" width="160" height="100"></img>
+    <img src="https://e7.pngegg.com/pngimages/41/862/png-clipart-student-higher-education-study-skills-learning-products-people-logo.png" alt="Girl in a jacket" width="150" height="90"></img>
 
       <form onSubmit={handleSubmit}>
         <div className="input-container">
@@ -75,7 +75,7 @@ function Login() {
         </div>
         <div className="button-container">
         
-          <input type="submit" />
+          <input type="submit" className="ls" />
           <Link to="/signup" className="signu">Click to SignUp</Link>
         </div>
       </form>
@@ -85,10 +85,10 @@ function Login() {
   return (
     <div className="app">
       <div className="login-form">
-        <div className="title">LogIn Profesor</div>
+        <div className="title">LogIn Student</div>
         {isSubmitted ? (
           <div>
-          <p>You are successfully logged in</p>
+            <p>You are successfully logged in</p>
             <Link to="/Lenda">Click to proceed</Link>
           </div>
         ) : (
@@ -99,4 +99,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginN;

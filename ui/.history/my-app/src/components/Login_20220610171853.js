@@ -60,7 +60,7 @@ function Login() {
   // JSX code for login form
   const renderForm = (
     <div className="form">
-    <img src="https://e7.pngegg.com/pngimages/265/858/png-clipart-computer-icons-teacher-professor-education-lecturer-teacher-angle-logo.png" alt="Girl in a jacket" width="160" height="100"></img>
+    <img src="https://e7.pngegg.com/pngimages/265/858/png-clipart-computer-icons-teacher-professor-education-lecturer-teacher-angle-logo.png" alt="Girl in a jacket" width="180" height="100"></img>
 
       <form onSubmit={handleSubmit}>
         <div className="input-container">

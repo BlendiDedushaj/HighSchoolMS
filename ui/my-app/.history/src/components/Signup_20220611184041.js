@@ -1,0 +1,67 @@
+import React,{Component} from "react";
+import "../styles/signup.css";
+import { Link } from "react-router-dom";
+
+export class Signup extends Component{
+  
+    render(){
+      function isPasswordMatch() {
+        // eslint-disable-next-line no-undef
+        var password = $("#txtNewPassword").val();
+        // eslint-disable-next-line no-undef
+        var confirmPassword = $("#txtConfirmPassword").val();
+    
+        // eslint-disable-next-line no-undef
+        if (password != confirmPassword) $("#divCheckPassword").html("Passwords do not match!");
+        // eslint-disable-next-line no-undef
+        else $("#divCheckPassword").html("Passwords match.");
+    }
+    
+    // eslint-disable-next-line no-undef
+    $(document).ready(function () {
+        // eslint-disable-next-line no-undef
+        $("#txtConfirmPassword").keyup(isPasswordMatch);
+    });
+    
+        return(
+            <form>
+        <h3>Sign Up</h3>
+        <td colspan="2">
+                            <p>
+                                <label>First Name</label><br />
+                                <input type="text" id="text" name="firstname" placeholder="Your name..." size="80" required />
+                            </p>
+                            <p>
+                                <label>Last Name</label><br />
+                                <input type="text" id="text" name="lastname" placeholder="Your last name..." size="80" required />
+                            </p>
+                            <p>
+                                <label>Email</label><br />
+                                <input type="email" id="text" name="email" placeholder="Your email..." size="80" required />
+                            </p>
+                        </td>
+                        <p>
+    <input type="password" name="NPassword" placeholder="New Password" id="txtNewPassword" />
+</p>
+<input type="password" name="RNPassword" placeholder="Retype New Password" id="txtConfirmPassword" onChange="isPasswordMatch();" />
+<div id="divCheckPassword"></div>
+        <div className="mb-3">
+          <label>Password</label>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter password"
+          />
+        </div>
+        <div className="d-grid">
+        <input type="submit" class="rounded" />
+          
+        </div>
+        <p className="forgot-password text-right">
+          Already registered <Link to="/" className="signu">Click to LogIn</Link>
+        </p>
+      </form>
+        )
+    }
+}
+export default Signup;

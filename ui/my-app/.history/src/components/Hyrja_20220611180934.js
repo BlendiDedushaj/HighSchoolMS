@@ -15,7 +15,6 @@ function Hyrja() {
             <button><Link to="/loginn">Login like Student</Link></button>
             <button><Link to="/loginprind">Login like Parent</Link></button>
           </div>
-          <br></br>
           <p>Log In according to your role</p>
       </div>
     </div>

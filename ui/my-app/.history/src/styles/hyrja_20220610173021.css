@@ -23,7 +23,7 @@
     font-size: 15px;
     background: #01d28e;
     border: 1px solid #01d28e;
-    color: #fff;
+    color: rgb(222, 74, 74);
     padding: 10px 20px;
   }
   
@@ -54,8 +54,7 @@
   .title {
     font-size: 25px;
     margin-bottom: 20px;
-    margin-right: 440px;
- 
+    margin-left:180px;
   }
   
   .input-container {

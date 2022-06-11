@@ -10,15 +10,15 @@ export class Signup extends Component{
         <td colspan="2">
                             <p>
                                 <label>First Name</label><br />
-                                <input type="text" id="text" name="firstname" placeholder="Your name..." size="80" crequired />
+                                <input type="text" id="text" name="firstname" placeholder="Your name..." size="80" required />
                             </p>
                             <p>
                                 <label>Last Name</label><br />
-                                <input type="text" id="text" name="lastname" placeholder="Your last name..." size="80" class="required" />
+                                <input type="text" id="text" name="lastname" placeholder="Your last name..." size="80" required />
                             </p>
                             <p>
                                 <label>Email</label><br />
-                                <input type="email" id="text" name="email" placeholder="Your email..." size="80" class="required" />
+                                <input type="email" id="text" name="email" placeholder="Your email..." size="80" required />
                             </p>
                         </td>
         <div className="mb-3">

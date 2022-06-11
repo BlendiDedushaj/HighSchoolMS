@@ -10,7 +10,7 @@ export class Signup extends Component{
         <td colspan="2">
                             <p>
                                 <label>First Name</label><br />
-                                <input type="text" id="text" name="firstname" placeholder="Your name..." size="80" crequired />
+                                <input type="text" id="text" name="firstname" placeholder="Your name..." size="80" class="required" />
                             </p>
                             <p>
                                 <label>Last Name</label><br />
@@ -30,8 +30,7 @@ export class Signup extends Component{
           />
         </div>
         <div className="d-grid">
-        <input type="submit" class="rounded" />
-          
+        <input type="submit" class="rounded"> <input type="reset" value="Clear Form" class="rounded">
         </div>
         <p className="forgot-password text-right">
           Already registered <Link to="/" className="signu">Click to LogIn</Link>

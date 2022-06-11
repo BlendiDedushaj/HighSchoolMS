@@ -54,8 +54,7 @@
   .title {
     font-size: 25px;
     margin-bottom: 20px;
-    margin-right: 440px;
- 
+    margin-left:180px;
   }
   
   .input-container {
@@ -73,8 +72,5 @@
   .buttons{
       display: flex;
      justify-content: space-around ;
-    
-  }
-  button{
-    background-color: #4beaff;
+     background-color: #01d28e;
   }

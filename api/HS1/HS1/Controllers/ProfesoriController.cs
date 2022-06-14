@@ -80,7 +80,7 @@ namespace HS1.Controllers
         {
             string query = @"
                             update dbo.Profesori
-                            set ProfesoriName= @ProfesoriName
+                            set ProfesoriName= @ProfesoriName,
                             Lenda=@Lenda,
                             DateOfJoining=@DateOfJoining,
                             PhotoFileName=@PhotoFileName

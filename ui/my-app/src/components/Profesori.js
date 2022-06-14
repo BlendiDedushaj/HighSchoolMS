@@ -301,8 +301,7 @@ export class Profesori extends Component {
                       </div>
                     </div>
                     <div className="p-2 w-50 bd-highlight">
-                      <img
-                        width="250px"
+                      <img width="250px"
                         height="250px"
                         src={PhotoPath + PhotoFileName}
                         alt=""

@@ -67,6 +67,7 @@ namespace HS1.Controllers
                     myCommand.Parameters.AddWithValue("@NxenesiSurname", nx.NxenesiSurname);
                     myCommand.Parameters.AddWithValue("@Klasa", nx.Klasa);
                     myCommand.Parameters.AddWithValue("@Paralelja", nx.Paralelja);
+                    myCommand.Parameters.AddWithValue("@Orari", nx.Orari);
                     myCommand.Parameters.AddWithValue("@DateOfJoining", nx.DateOfJoining);
                     myCommand.Parameters.AddWithValue("@PhotoFileName", nx.PhotoFileName);
                     myReader = myCommand.ExecuteReader();
@@ -89,7 +90,7 @@ namespace HS1.Controllers
                             Orari=@Orari,
                             DateOfJoining=@DateOfJoining,
                             PhotoFileName=@PhotoFileName
-                            where ProfesoriId=@ProfesoriId
+                            where NxenesiId=@NxenesiId
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");

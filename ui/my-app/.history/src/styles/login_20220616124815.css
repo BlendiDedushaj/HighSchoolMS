@@ -43,7 +43,8 @@
  
 img{
   display: flex;
- margin-left: 350px;
+justify-content: center;
+align-items: center;
 }
   
   .list-container {
@@ -58,7 +59,7 @@ img{
   .title {
     font-size: 25px;
     margin-bottom: 20px;
-    margin-left: 480px;
+    margin-left: 450px;
   }
   
   .input-container {

@@ -16,7 +16,7 @@
   
 
   
-  .titlee {
+  .title {
     font-size: 25px;
     margin-bottom: 20px;
     margin-right: 440px;
@@ -30,6 +30,4 @@
      justify-content: space-around ;
     
   }
-  button{
-    background-color: #4beaff;
-  }
+ 

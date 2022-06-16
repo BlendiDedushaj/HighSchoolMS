@@ -16,7 +16,7 @@
   
 
   
-  .titlee {
+  .title {
     font-size: 25px;
     margin-bottom: 20px;
     margin-right: 440px;
@@ -24,7 +24,12 @@
   }
   
 
-
+  .signu{
+    display: flex;
+    justify-content: start;
+    margin-left: 30px;
+    align-items: flex-end;
+  }
   .buttons{
       display: flex;
      justify-content: space-around ;

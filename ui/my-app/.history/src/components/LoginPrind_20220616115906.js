@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/login.css";
+import "../styles/loginprind.css";
 
-function Login() {
+function LoginPrind() {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -18,7 +18,7 @@ function Login() {
       password: "Pass12345",
     },
     {
-      username: "c@prind.com",
+      username: "c@prindi.com",
       password: "Pass12345",
     },
   ];
@@ -59,40 +59,37 @@ function Login() {
 
   // JSX code for login form
   const renderForm = (
-    <div className="forma">
-    <img src="https://img.favpng.com/4/13/22/logo-family-png-favpng-7GVVZ59reeDB2eagC4iq6NX6V.jpg" alt="Girl in a jacket" width="400" height="250"></img>
-
+    <div className="form">
+    <img src="https://mpng.subpng.com/20190524/gqg/kisspng-family-support-portable-network-graphics-clip-art-when-can-you-claim-a-tax-deduction-for-health-insu-5ce8a9d7c01164.2864663215587517037867.jpg" alt="Girl in a jacket" width="120" height="70"></img>
       <form onSubmit={handleSubmit}>
-        <div className="group">
-        <input type="text"  required/>
+        <div className="input-container">
           <label>Username </label>
-          <span class="highlight"></span>
-          <span class="bar"></span>
+          <input type="text" name="uname" required />
           {renderErrorMessage("uname")}
         </div>
-        <div className="group">
-        <input type="password" required />
-        <span class="highlight"></span>
-      <span class="bar"></span>
+        <div className="input-container">
           <label>Password </label>
-          
+          <input type="password" name="pass" required />
           {renderErrorMessage("pass")}
         </div>
         <div className="button-container">
         
           <input type="submit" />
           <Link to="/signup" className="signu">Click to SignUp</Link>
+          
         </div>
       </form>
     </div>
   );
 
   return (
-    <div className="applog">
+    <div className="app">
       <div className="login-form">
         <div className="title">LogIn Prind</div>
         {isSubmitted ? (
           <div>
+          
+
           <p>You are successfully logged in</p>
             <Link to="/Lenda">Click to proceed</Link>
           </div>
@@ -104,4 +101,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginPrind;

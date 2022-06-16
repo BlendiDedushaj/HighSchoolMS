@@ -59,8 +59,8 @@ function Login() {
 
   // JSX code for login form
   const renderForm = (
-    <div className="forma">
-    <img src="https://img.favpng.com/4/13/22/logo-family-png-favpng-7GVVZ59reeDB2eagC4iq6NX6V.jpg" alt="Girl in a jacket" width="400" height="250"></img>
+    <div className="form">
+    <img src="https://img.favpng.com/4/13/22/logo-family-png-favpng-7GVVZ59reeDB2eagC4iq6NX6V.jpg" alt="Girl in a jacket" width="300" height="150"></img>
 
       <form onSubmit={handleSubmit}>
         <div className="group">

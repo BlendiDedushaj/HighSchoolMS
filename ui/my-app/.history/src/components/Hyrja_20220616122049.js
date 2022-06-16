@@ -7,7 +7,7 @@ function Hyrja() {
   return (
     <div className="app">
       <div className="login-form">
-        <div className="titlee">LogIn</div>
+        <div className="title">LogIn</div>
        
           <div className="buttons">
            

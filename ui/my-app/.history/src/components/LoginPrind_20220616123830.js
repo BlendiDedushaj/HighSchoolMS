@@ -59,8 +59,8 @@ function Login() {
 
   // JSX code for login form
   const renderForm = (
-    <div className="forma">
-    <img src="https://img.favpng.com/4/13/22/logo-family-png-favpng-7GVVZ59reeDB2eagC4iq6NX6V.jpg" alt="Girl in a jacket" width="400" height="250"></img>
+    <div className="form">
+    <img src="https://e7.pngegg.com/pngimages/265/858/png-clipart-computer-icons-teacher-professor-education-lecturer-teacher-angle-logo.png" alt="Girl in a jacket" width="160" height="100"></img>
 
       <form onSubmit={handleSubmit}>
         <div className="group">
@@ -90,7 +90,7 @@ function Login() {
   return (
     <div className="applog">
       <div className="login-form">
-        <div className="title">LogIn Prind</div>
+        <div className="title">LogIn Profesor</div>
         {isSubmitted ? (
           <div>
           <p>You are successfully logged in</p>

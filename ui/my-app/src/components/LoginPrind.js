@@ -66,14 +66,14 @@ function Login() {
 
       <form onSubmit={handleSubmit}>
         <div className="grouppp">
-        <input type="text"  required/>
+        <input type="text" name="uname" required/>
           <label>Username </label>
           <span class="highlight"></span>
           <span class="bar"></span>
           {renderErrorMessage("uname")}
         </div>
         <div className="grouppp">
-        <input type="password" required />
+        <input type="password" name="pass" required />
         <span class="highlight"></span>
       <span class="bar"></span>
           <label>Password </label>

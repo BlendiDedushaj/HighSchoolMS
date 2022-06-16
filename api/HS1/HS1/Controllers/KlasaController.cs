@@ -13,11 +13,11 @@ namespace HS1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LibriController : ControllerBase
+    public class KlasaController : ControllerBase
     {
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _env;
-        public LibriController(IConfiguration configuration, IWebHostEnvironment env)
+        public KlasaController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
             _env = env;
@@ -26,10 +26,9 @@ namespace HS1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                            select LibriId,LibriName,Lenda,
-                            PhotoFileName
+                            select KlasaId,KlasaName,Paralelja,Orari
                             from
-                            dbo.Libri
+                            dbo.Klasa
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -48,12 +47,12 @@ namespace HS1.Controllers
             return new JsonResult(table);
         }
         [HttpPost]
-        public JsonResult Post(Libri lib)
+        public JsonResult Post(Klasa kl)
         {
             string query = @"
-                            insert into dbo.Libri
-                            (LibriName, Lenda, PhotoFileName)
-                            values (@LibriName, @Lenda, @PhotoFileName)
+                            insert into dbo.Klasa
+                            (KlasaName, Paralelja, Orari)
+                            values (@KlasaName, @Paralelja, @Orari)
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -63,9 +62,9 @@ namespace HS1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@LibriName", lib.LibriName);
-                    myCommand.Parameters.AddWithValue("@Lenda", lib.Lenda);
-                    myCommand.Parameters.AddWithValue("@PhotoFileName", lib.PhotoFileName);
+                    myCommand.Parameters.AddWithValue("@KlasaName", kl.KlasaName);
+                    myCommand.Parameters.AddWithValue("@Paralelja", kl.Paralelja);
+                    myCommand.Parameters.AddWithValue("@Orari", kl.Orari);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -75,14 +74,14 @@ namespace HS1.Controllers
             return new JsonResult("Added Successfully");
         }
         [HttpPut]
-        public JsonResult Put(Libri lib)
+        public JsonResult Put(Klasa kl)
         {
             string query = @"
-                            update dbo.Libri
-                            set LibriName= @LibriName,
-                            Lenda=@Lenda,
-                            PhotoFileName=@PhotoFileName
-                            where LibriId=@LibriId
+                            update dbo.Klasa
+                            set KlasaName= @KlasaName,
+                            Paralelja=@Paralelja,
+                            Orari=@Orario
+                            where ProfesoriId=@ProfesoriId
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -92,10 +91,10 @@ namespace HS1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@LibriId", lib.LibriId);
-                    myCommand.Parameters.AddWithValue("@LibriName", lib.LibriName);
-                    myCommand.Parameters.AddWithValue("@Lenda", lib.Lenda);
-                    myCommand.Parameters.AddWithValue("@PhotoFileName", lib.PhotoFileName);
+                    myCommand.Parameters.AddWithValue("@KlasaId", kl.KlasaId);
+                    myCommand.Parameters.AddWithValue("@KlasaName", kl.KlasaName);
+                    myCommand.Parameters.AddWithValue("@Paralelja", kl.Paralelja);
+                    myCommand.Parameters.AddWithValue("@Orari", kl.Orari);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -108,8 +107,8 @@ namespace HS1.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                            delete from dbo.Libri
-                            where LibriId=@LibriId
+                            delete from dbo.Klasa
+                            where KlasaId=@KlasaId
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -119,7 +118,7 @@ namespace HS1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@LibriId", id);
+                    myCommand.Parameters.AddWithValue("@KlasaId", id);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -128,32 +127,6 @@ namespace HS1.Controllers
                 }
             }
             return new JsonResult("Deleted Successfully");
-        }
-
-        [Route("SaveFile")]
-        [HttpPost]
-
-        public JsonResult SaveFile()
-        {
-            try
-            {
-                var httpRequest = Request.Form;
-                var postedFile = httpRequest.Files[0];
-                string filename = postedFile.FileName;
-                var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
-
-                using (var stream = new FileStream(physicalPath, FileMode.Create))
-                {
-                    postedFile.CopyTo(stream);
-                }
-
-                return new JsonResult(filename);
-            }
-            catch (Exception)
-            {
-
-                return new JsonResult("anonymous.png");
-            }
         }
     }
 }

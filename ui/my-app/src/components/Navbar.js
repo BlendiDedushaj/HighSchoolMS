@@ -34,6 +34,27 @@ function Navbar() {
               </Link>
             </nav>
           </li>
+          <li className="nav-item- m-1">
+            <nav className="btn btn-light btn-outline-primary">
+              <Link to="/orari">
+              <span class="nameLink">Orari</span>
+              </Link>
+            </nav>
+          </li>
+          <li className="nav-item- m-1">
+            <nav className="btn btn-light btn-outline-primary">
+              <Link to="/paralelja">
+              <span class="nameLink">Paralelja</span>
+              </Link>
+            </nav>
+          </li>
+          <li className="nav-item- m-1">
+            <nav className="btn btn-light btn-outline-primary">
+              <Link to="/klasa">
+              <span class="nameLink">Klasa</span>
+              </Link>
+            </nav>
+          </li>
           </ul>
         </nav>
       </div>

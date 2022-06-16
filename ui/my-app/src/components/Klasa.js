@@ -1,26 +1,42 @@
 import React, { Component } from "react";
 import { variables } from "../utils/Variables.js";
 import Navbar from "./Navbar.js";
-import "../styles/lenda.css";
+import "../styles/klasa.css";
 
 
-export class Lenda extends Component {
+export class Klasa extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      lendet: [],
+      paralelet: [],
+      oraret: [],
+      klasat: [],
       modalTitle: "",
-      LendaName: "",
-      LendaId: 0,
+      KlasaId: 0,
+      KlasaName: "",
+      Paralelja: "",
+      Orari: "",
     };
   }
 
   refreshList() {
-    fetch(variables.API_URL + "lenda")
+    fetch(variables.API_URL + "klasa")
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ lendet: data });
+        this.setState({ klasat: data });
+      });
+
+    fetch(variables.API_URL + "paralelja")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ paralelet: data });
+      });
+
+    fetch(variables.API_URL + "orari")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ oraret: data });
       });
   }
 
@@ -28,35 +44,47 @@ export class Lenda extends Component {
     this.refreshList();
   }
 
-  changeLendaName = (e) => {
-    this.setState({ LendaName: e.target.value });
+  changeKlasaName = (e) => {
+    this.setState({ KlasaName: e.target.value });
+  };
+  changeParalelja = (e) => {
+    this.setState({ Paralelja: e.target.value });
+  };
+  changeOrari = (e) => {
+    this.setState({ Orari: e.target.value });
   };
 
   addClick() {
     this.setState({
-      modalTitle: "Shto Lenden",
-      LendaId: 0,
-      LendaName: "",
+      modalTitle: "Shto Klasen",
+      KlasaId: 0,
+      KlasaName: "",
+      Paralelja: "",
+      Orari: "",
     });
   }
 
-  editClick(len) {
+  editClick(kl) {
     this.setState({
-      modalTitle: "Edit Lenden",
-      LendaId: len.LendaId,
-      LendaName: len.LendaName,
+      modalTitle: "Edit Klasen",
+      KlasaId: kl.KlasaId,
+      KlasaName: kl.KlasaName,
+      Paralelja: kl.Paralelja,
+      Orari: kl.Orari,
     });
   }
 
   createClick() {
-    fetch(variables.API_URL + "lenda", {
+    fetch(variables.API_URL + "klasa", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        LendaName: this.state.LendaName,
+        KlasaName: this.state.KlasaName,
+        Paralelja: this.state.Paralelja,
+        Orari: this.state.Orari,
       }),
     })
       .then((res) => res.json())
@@ -72,15 +100,17 @@ export class Lenda extends Component {
   }
 
   updateClick() {
-    fetch(variables.API_URL + "lenda", {
+    fetch(variables.API_URL + "klasa", {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        LendaId: this.state.LendaId,
-        LendaName: this.state.LendaName,
+        KlasaId: this.state.KlasaId,
+        KlasaName: this.state.KlasaName,
+        Paralelja: this.state.Paralelja,
+        Orari: this.state.Orari,
       }),
     })
       .then((res) => res.json())
@@ -97,7 +127,7 @@ export class Lenda extends Component {
 
   deleteClick(id) {
     if (window.confirm("A jeni i sigurt?")) {
-      fetch(variables.API_URL + "lenda/" + id, {
+      fetch(variables.API_URL + "klasa/" + id, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -118,11 +148,20 @@ export class Lenda extends Component {
   }
 
   render() {
-    const { lendet, modalTitle, LendaId, LendaName } = this.state;
+    const {
+      paralelet,
+      oraret,
+      klasat,
+      modalTitle,
+      KlasaId,
+      KlasaName,
+      Paralelja,
+      Orari,
+    } = this.state;
     return (
       <div>
         <Navbar />
-        <div class="LendaApp">
+        <div class="KlasaApp">
           <button
             type="button"
             className="btn btn-primary m-2 float-end"
@@ -130,28 +169,32 @@ export class Lenda extends Component {
             data-bs-target="#exampleModal"
             onClick={() => this.addClick()}
           >
-            Shto Lenden
+            Shto Klasen
           </button>
           <table className="table table-striped">
             <thead>
-            <tr>
-                <th>LendaId</th>
-                <th>LendaName</th>
+              <tr>
+                <th>KlasaId</th>
+                <th>KlasaName</th>
+                <th>Paralelja</th>
+                <th>Orari</th>
                 <th>Options</th>
               </tr>
             </thead>
             <tbody>
-              {lendet.map((len) => (
-                <tr key={len.LendaId}>
-                  <td>{len.LendaId}</td>
-                  <td>{len.LendaName}</td>
+              {klasat.map((kl) => (
+                <tr key={kl.KlasaId}>
+                  <td>{kl.KlasaId}</td>
+                  <td>{kl.KlasaName}</td>
+                  <td>{kl.Paralelja}</td>
+                  <td>{kl.Orari}</td>
                   <td>
                     <button
                       type="button"
                       className="btn btn-light mr-1"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
-                      onClick={() => this.editClick(len)}
+                      onClick={() => this.editClick(kl)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +214,7 @@ export class Lenda extends Component {
                     <button
                       type="button"
                       className="btn btn-light mr-1"
-                      onClick={() => this.deleteClick(len.LendaId)}
+                      onClick={() => this.deleteClick(kl.KlasaId)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -208,17 +251,44 @@ export class Lenda extends Component {
                 </div>
 
                 <div className="modal-body">
-                  <div className="input-group mb-3">
-                    <span className="input-group-text">LendaName</span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={LendaName}
-                      onChange={this.changeLendaName}
-                    />
+                  <div className="d-flex flex-row bd-highlight mb-3">
+                    <div className="p-2 w-50 bd-highlight">
+                      <div className="input-group mb-3">
+                        <span className="input-group-text">Klasa Name</span>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={KlasaName}
+                          onChange={this.changeKlasaName}
+                        />
+                      </div>
+                      <div className="input-group mb-3">
+                        <span className="input-group-text">Paralelja</span>
+                        <select
+                          className="form-select"
+                          onChange={this.changeParalelja}
+                          value={Paralelja}
+                        >
+                          {paralelet.map((paral) => (
+                            <option key={paral.ParaleljaId}>{paral.ParaleljaName}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="input-group mb-4">
+                      <span className="input-group-text">Orari</span>
+                      <select
+                          className="form-select"
+                          onChange={this.changeOrari}
+                          value={Orari}
+                        >
+                          {oraret.map((ora) => (
+                            <option key={ora.OrariId}>{ora.OrariName}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
                   </div>
-
-                  {LendaId === 0 ? (
+                  {KlasaId === 0 ? (
                     <button
                       type="button"
                       className="btn btn-primary float-start"
@@ -228,7 +298,7 @@ export class Lenda extends Component {
                     </button>
                   ) : null}
 
-                  {LendaId !== 0 ? (
+                  {KlasaId !== 0 ? (
                     <button
                       type="button"
                       className="btn btn-primary float-start"

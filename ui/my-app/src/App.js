@@ -3,6 +3,9 @@ import { Signup } from "./components/Signup";
 import { Lenda } from "./components/Lenda";
 import { Profesori } from "./components/Profesori";
 import { Libri } from "./components/Libri";
+import { Orari } from "./components/Orari";
+import { Paralelja } from "./components/Paralelja";
+import { Klasa } from "./components/Klasa";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Hyrja from "./components/Hyrja";
 import Login from "./components/Login";
@@ -25,6 +28,9 @@ function App() {
           <Route path="/loginn" element={<LoginN/>} />
           <Route path="/loginprind" element={<LoginPrind />} />
           <Route path="/lenda" element={<Lenda />} />
+          <Route path="/orari" element={<Orari />} />
+          <Route path="/paralelja" element={<Paralelja />} />
+          <Route path="/klasa" element={<Klasa />} />
           <Route path="/profesori" element={<Profesori />} />
         </Routes>
       </BrowserRouter>

@@ -24,7 +24,7 @@ namespace HS1.Controllers
                             dbo.Lenda
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("ProfesoriAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
             SqlDataReader myReader;
             using(SqlConnection myCon=new SqlConnection(sqlDataSource))
             {
@@ -47,7 +47,7 @@ namespace HS1.Controllers
                             values (@LendaName)
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("ProfesoriAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
             SqlDataReader myReader;
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -72,7 +72,7 @@ namespace HS1.Controllers
                             where LendaId=@LendaId
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("ProfesoriAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
             SqlDataReader myReader;
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
@@ -97,7 +97,7 @@ namespace HS1.Controllers
                             where LendaId=@LendaId
                             ";
             DataTable table = new DataTable();
-            string sqlDataSource = _configuration.GetConnectionString("ProfesoriAppCon");
+            string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
             SqlDataReader myReader;
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
             {

@@ -1,26 +1,26 @@
 import React, { Component } from "react";
 import { variables } from "../utils/Variables.js";
 import Navbar from "./Navbar.js";
-import "../styles/lenda.css";
+import "../styles/paralelja.css";
 
 
-export class Lenda extends Component {
+export class Paralelja extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      lendet: [],
+      paralelet: [],
       modalTitle: "",
-      LendaName: "",
-      LendaId: 0,
+      ParaleljaName: "",
+      ParaleljaId: 0,
     };
   }
 
   refreshList() {
-    fetch(variables.API_URL + "lenda")
+    fetch(variables.API_URL + "paralelja")
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ lendet: data });
+        this.setState({ paralelet: data });
       });
   }
 
@@ -28,35 +28,35 @@ export class Lenda extends Component {
     this.refreshList();
   }
 
-  changeLendaName = (e) => {
-    this.setState({ LendaName: e.target.value });
+  changeParaleljaName = (e) => {
+    this.setState({ ParaleljaName: e.target.value });
   };
 
   addClick() {
     this.setState({
-      modalTitle: "Shto Lenden",
-      LendaId: 0,
-      LendaName: "",
+      modalTitle: "Shto Paralelen",
+      ParaleljaId: 0,
+      ParaleljaName: "",
     });
   }
 
-  editClick(len) {
+  editClick(paral) {
     this.setState({
-      modalTitle: "Edit Lenden",
-      LendaId: len.LendaId,
-      LendaName: len.LendaName,
+      modalTitle: "Edit Paralelen",
+      ParaleljaId: paral.ParaleljaId,
+      ParaleljaName: paral.ParaleljaName,
     });
   }
 
   createClick() {
-    fetch(variables.API_URL + "lenda", {
+    fetch(variables.API_URL + "paralelja", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        LendaName: this.state.LendaName,
+        ParaleljaName: this.state.ParaleljaName,
       }),
     })
       .then((res) => res.json())
@@ -72,15 +72,15 @@ export class Lenda extends Component {
   }
 
   updateClick() {
-    fetch(variables.API_URL + "lenda", {
+    fetch(variables.API_URL + "paralelja", {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        LendaId: this.state.LendaId,
-        LendaName: this.state.LendaName,
+        ParaleljaId: this.state.ParaleljaId,
+        ParaleljaName: this.state.ParaleljaName,
       }),
     })
       .then((res) => res.json())
@@ -97,7 +97,7 @@ export class Lenda extends Component {
 
   deleteClick(id) {
     if (window.confirm("A jeni i sigurt?")) {
-      fetch(variables.API_URL + "lenda/" + id, {
+      fetch(variables.API_URL + "paralelja/" + id, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -118,11 +118,11 @@ export class Lenda extends Component {
   }
 
   render() {
-    const { lendet, modalTitle, LendaId, LendaName } = this.state;
+    const { paralelet, modalTitle, ParaleljaId, ParaleljaName } = this.state;
     return (
       <div>
         <Navbar />
-        <div class="LendaApp">
+        <div class="ParaleljaApp">
           <button
             type="button"
             className="btn btn-primary m-2 float-end"
@@ -130,28 +130,28 @@ export class Lenda extends Component {
             data-bs-target="#exampleModal"
             onClick={() => this.addClick()}
           >
-            Shto Lenden
+            Shto Paralelen
           </button>
           <table className="table table-striped">
             <thead>
-            <tr>
-                <th>LendaId</th>
-                <th>LendaName</th>
+              <tr>
+                <th>ParaleljaId</th>
+                <th>ParaleljaName</th>
                 <th>Options</th>
               </tr>
             </thead>
             <tbody>
-              {lendet.map((len) => (
-                <tr key={len.LendaId}>
-                  <td>{len.LendaId}</td>
-                  <td>{len.LendaName}</td>
+              {paralelet.map((paral) => (
+                <tr key={paral.ParaleljaId}>
+                  <td>{paral.ParaleljaId}</td>
+                  <td>{paral.ParaleljaName}</td>
                   <td>
                     <button
                       type="button"
                       className="btn btn-light mr-1"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
-                      onClick={() => this.editClick(len)}
+                      onClick={() => this.editClick(paral)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ export class Lenda extends Component {
                     <button
                       type="button"
                       className="btn btn-light mr-1"
-                      onClick={() => this.deleteClick(len.LendaId)}
+                      onClick={() => this.deleteClick(paral.ParaleljaId)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -209,16 +209,16 @@ export class Lenda extends Component {
 
                 <div className="modal-body">
                   <div className="input-group mb-3">
-                    <span className="input-group-text">LendaName</span>
+                    <span className="input-group-text">ParaleljaName</span>
                     <input
                       type="text"
                       className="form-control"
-                      value={LendaName}
-                      onChange={this.changeLendaName}
+                      value={ParaleljaName}
+                      onChange={this.changeParaleljaName}
                     />
                   </div>
 
-                  {LendaId === 0 ? (
+                  {ParaleljaId === 0 ? (
                     <button
                       type="button"
                       className="btn btn-primary float-start"
@@ -228,7 +228,7 @@ export class Lenda extends Component {
                     </button>
                   ) : null}
 
-                  {LendaId !== 0 ? (
+                  {ParaleljaId !== 0 ? (
                     <button
                       type="button"
                       className="btn btn-primary float-start"

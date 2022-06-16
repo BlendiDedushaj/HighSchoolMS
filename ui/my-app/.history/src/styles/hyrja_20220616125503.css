@@ -1,5 +1,5 @@
 body{
-  background: lightblue ; 
+  background: lightblue url("img_tree.gif") no-repeat fixed center; 
 }
 .app {
     font-family: sans-serif;

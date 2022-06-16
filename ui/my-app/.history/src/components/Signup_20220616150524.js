@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 export class Signup extends Component{
     render(){
         return(
-          <div className="formsig">
+          <div>
+          <div className="form">
       
            
               <div className="group">
@@ -13,7 +14,6 @@ export class Signup extends Component{
                 <label>Name </label>
                 <span class="highlight"></span>
                 <span class="bar"></span>
-                </div>
               
                 <div className="group">
                 <input type="text"  required/>
@@ -43,13 +43,12 @@ export class Signup extends Component{
                 <label>Password </label>
           
               </div>
-              
               <div className="button-container">
               
                 <input type="submit" />
-                <Link to="/" className="signu">Click to SignUp</Link>
+                <Link to="/signup" className="signu">Click to SignUp</Link>
               </div>
-        
+              </div>
           </div>
         )
     }

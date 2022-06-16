@@ -47,7 +47,7 @@ export class Signup extends Component{
               <div className="button-container">
               
                 <input type="submit" />
-                <Link to="/" className="signu">Click to SignUp</Link>
+                <Link to="/signup" className="signu">Click to SignUp</Link>
               </div>
         
           </div>

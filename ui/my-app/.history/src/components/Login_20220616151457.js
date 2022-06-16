@@ -10,15 +10,15 @@ function Login() {
   // User Login info
   const database = [
     {
-      username: "a@student.com",
+      username: "a@prof.com",
       password: "Pass12345",
     },
     {
-      username: "b@student.com",
+      username: "b@prof.com",
       password: "Pass12345",
     },
     {
-      username: "c@student.com",
+      username: "c@prof.com",
       password: "Pass12345",
     },
   ];
@@ -59,10 +59,8 @@ function Login() {
 
   // JSX code for login form
   const renderForm = (
-    <div>
-    <img src="https://img.favpng.com/25/9/14/logo-font-book-education-study-skills-png-favpng-tRAJk65v4kZLzRCjV4K5EQcpW.jpg" alt="Girl in a jacket" width="400" height="250"></img>
     <div className="form">
-   
+    <img src="https://e7.pngegg.com/pngimages/265/858/png-clipart-computer-icons-teacher-professor-education-lecturer-teacher-angle-logo.png" alt="Girl in a jacket" width="400" height="250"></img>
 
       <form onSubmit={handleSubmit}>
         <div className="group">
@@ -87,13 +85,12 @@ function Login() {
         </div>
       </form>
     </div>
-    </div>
   );
 
   return (
     <div className="applog">
       <div className="login-form">
-        <div className="title">LogIn Student</div>
+        <div className="title">LogIn Profesor</div>
         {isSubmitted ? (
           <div>
           <p>You are successfully logged in</p>

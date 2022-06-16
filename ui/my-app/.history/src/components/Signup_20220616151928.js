@@ -44,7 +44,7 @@ export class Signup extends Component{
           
               </div>
               
-              <div className="button">
+              <div className="button-container">
               
                 <input type="submit" />
                 <Link to="/" className="signu">Click to Login</Link>

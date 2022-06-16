@@ -43,7 +43,7 @@
  
 img{
   display: flex;
-margin-left: 50px;
+ margin-left: 10px;
  margin-bottom: 50px;
 }
   
@@ -55,13 +55,7 @@ margin-left: 50px;
     color: red;
     font-size: 12px;
   }
-  
-  .title {
-    font-size: 25px;
-    margin-left: 160px;
-    margin-top: 30px;
 
-  }
   
   .input-container {
     display: flex;
@@ -104,17 +98,17 @@ h2 small {
 .group 			  { 
   position:relative; 
   margin-bottom:45px; 
-
+  margin-left:47px;
 }
 .groupp 			  { 
   position:relative; 
   margin-bottom:45px; 
-
+  margin-left:50px;
 }
 .grouppp 			  { 
   position:relative; 
   margin-bottom:45px; 
-
+  margin-left:35px;
 }
 input 				{
   font-size:18px;

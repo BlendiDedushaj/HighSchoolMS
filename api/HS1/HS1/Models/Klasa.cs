@@ -4,7 +4,5 @@
     {
         public int KlasaId { get; set; }
         public string KlasaName { get; set; }
-        public string Paralelja { get; set; }
-        public string Orari { get; set; }
     }
 }

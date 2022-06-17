@@ -52,8 +52,8 @@ namespace HS1.Controllers
         {
             string query = @"
                             insert into dbo.Vleresimi
-                            (Lenda,Profesori,Nxenesi,Klasa,Paralelja,Orari,Nota, Data)
-                            values (@Lenda,@Profesori, @Nxenesi,@Klasa,@Paralelja,@Orari, @Nota, @Data)
+                            (Lenda,Profesori,Nxenesi,Klasa,Paralelja,Orari,Nota,Data)
+                            values (@Lenda,@Profesori,@Nxenesi,@Klasa,@Paralelja,@Orari,@Nota,@Data)
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -73,7 +73,7 @@ namespace HS1.Controllers
                     myCommand.Parameters.AddWithValue("@Data", vl.Data);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
-                    myReader.Close();
+                    myReader.Close(); 
                     myCon.Close();
                 }
             }
@@ -85,7 +85,7 @@ namespace HS1.Controllers
             string query = @"
                             update dbo.Vleresimi
                             set Lenda= @Lenda,
-                            Profesori= @Profesori,
+                            set Profesori= @Profesori,
                             Nxenesi= @Nxenesi,
                             Klasa=@Klasa,
                             Paralelja=@Paralelja,
@@ -144,6 +144,5 @@ namespace HS1.Controllers
             }
             return new JsonResult("Deleted Successfully");
         }
-
     }
 }

@@ -10,6 +10,7 @@ export class Vleresimi extends Component {
 
     this.state = {
       klasat: [],
+      vleresimet: [],
       paralelet: [],
       notat: [],
       nxenesit: [],
@@ -34,6 +35,12 @@ export class Vleresimi extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ nxenesit: data });
+      });
+
+      fetch(variables.API_URL + "vleresimi")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ vleresimet: data });
       });
 
     fetch(variables.API_URL + "klasa")
@@ -105,7 +112,7 @@ export class Vleresimi extends Component {
 
   addClick() {
     this.setState({
-      modalTitle: "Shto Nxenesin",
+      modalTitle: "Jep Vleresim",
       VleresimiId: 0,
       Lenda: "",
       Profesori: "",
@@ -119,7 +126,7 @@ export class Vleresimi extends Component {
 
   editClick(vl) {
     this.setState({
-      modalTitle: "Edit Profesorin",
+      modalTitle: "Edit Vleresimi",
       VleresimiId: vl.VleresimiId,
       Lenda: vl.Lenda,
       Profesori: vl.Profesori,
@@ -216,6 +223,7 @@ export class Vleresimi extends Component {
 
   render() {
     const {
+      vleresimet,
       klasat,
       paralelet,
       oraret,
@@ -263,7 +271,7 @@ export class Vleresimi extends Component {
               </tr>
             </thead>
             <tbody>
-              {nxenesit.map((vl) => (
+              {vleresimet.map((vl) => (
                 <tr key={vl.VleresimiId}>
                   <td>{vl.VleresimiId}</td>
                   <td>{vl.Lenda}</td>

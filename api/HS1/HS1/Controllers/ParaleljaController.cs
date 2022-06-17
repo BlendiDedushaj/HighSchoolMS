@@ -80,7 +80,7 @@ namespace HS1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@ParaleljaId", paral.ParaleljaId);
-                    myCommand.Parameters.AddWithValue("@OrariName", paral.ParaleljaName);
+                    myCommand.Parameters.AddWithValue("@ParaleljaName", paral.ParaleljaName);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();

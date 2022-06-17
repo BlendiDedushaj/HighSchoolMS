@@ -9,7 +9,6 @@
         public string Klasa { get; set; }
         public string Paralelja { get; set; }
         public string Orari { get; set; }
-
         public string Nota { get; set; }
         public string Data { get; set; }
     }

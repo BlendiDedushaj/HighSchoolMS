@@ -16,17 +16,15 @@ namespace HS1.Controllers
     public class KlasaController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        private readonly IWebHostEnvironment _env;
-        public KlasaController(IConfiguration configuration, IWebHostEnvironment env)
+        public KlasaController(IConfiguration configuration)
         {
             _configuration = configuration;
-            _env = env;
         }
         [HttpGet]
         public JsonResult Get()
         {
             string query = @"
-                            select KlasaId,KlasaName,Paralelja,Orari
+                            select KlasaId,KlasaName
                             from
                             dbo.Klasa
                             ";
@@ -51,8 +49,8 @@ namespace HS1.Controllers
         {
             string query = @"
                             insert into dbo.Klasa
-                            (KlasaName, Paralelja, Orari)
-                            values (@KlasaName, @Paralelja, @Orari)
+                            (KlasaName)
+                            values (@KlasaName)
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -63,8 +61,6 @@ namespace HS1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@KlasaName", kl.KlasaName);
-                    myCommand.Parameters.AddWithValue("@Paralelja", kl.Paralelja);
-                    myCommand.Parameters.AddWithValue("@Orari", kl.Orari);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -78,9 +74,7 @@ namespace HS1.Controllers
         {
             string query = @"
                             update dbo.Klasa
-                            set KlasaName= @KlasaName,
-                            Paralelja=@Paralelja,
-                            Orari=@Orario
+                            set KlasaName= @KlasaName
                             where ProfesoriId=@ProfesoriId
                             ";
             DataTable table = new DataTable();
@@ -93,8 +87,6 @@ namespace HS1.Controllers
                 {
                     myCommand.Parameters.AddWithValue("@KlasaId", kl.KlasaId);
                     myCommand.Parameters.AddWithValue("@KlasaName", kl.KlasaName);
-                    myCommand.Parameters.AddWithValue("@Paralelja", kl.Paralelja);
-                    myCommand.Parameters.AddWithValue("@Orari", kl.Orari);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();

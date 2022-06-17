@@ -9,14 +9,10 @@ export class Klasa extends Component {
     super(props);
 
     this.state = {
-      paralelet: [],
-      oraret: [],
       klasat: [],
       modalTitle: "",
       KlasaId: 0,
       KlasaName: "",
-      Paralelja: "",
-      Orari: "",
     };
   }
 
@@ -25,18 +21,6 @@ export class Klasa extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ klasat: data });
-      });
-
-    fetch(variables.API_URL + "paralelja")
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({ paralelet: data });
-      });
-
-    fetch(variables.API_URL + "orari")
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({ oraret: data });
       });
   }
 
@@ -47,20 +31,12 @@ export class Klasa extends Component {
   changeKlasaName = (e) => {
     this.setState({ KlasaName: e.target.value });
   };
-  changeParalelja = (e) => {
-    this.setState({ Paralelja: e.target.value });
-  };
-  changeOrari = (e) => {
-    this.setState({ Orari: e.target.value });
-  };
 
   addClick() {
     this.setState({
       modalTitle: "Shto Klasen",
       KlasaId: 0,
       KlasaName: "",
-      Paralelja: "",
-      Orari: "",
     });
   }
 
@@ -69,8 +45,6 @@ export class Klasa extends Component {
       modalTitle: "Edit Klasen",
       KlasaId: kl.KlasaId,
       KlasaName: kl.KlasaName,
-      Paralelja: kl.Paralelja,
-      Orari: kl.Orari,
     });
   }
 
@@ -83,8 +57,6 @@ export class Klasa extends Component {
       },
       body: JSON.stringify({
         KlasaName: this.state.KlasaName,
-        Paralelja: this.state.Paralelja,
-        Orari: this.state.Orari,
       }),
     })
       .then((res) => res.json())
@@ -109,8 +81,6 @@ export class Klasa extends Component {
       body: JSON.stringify({
         KlasaId: this.state.KlasaId,
         KlasaName: this.state.KlasaName,
-        Paralelja: this.state.Paralelja,
-        Orari: this.state.Orari,
       }),
     })
       .then((res) => res.json())
@@ -149,14 +119,10 @@ export class Klasa extends Component {
 
   render() {
     const {
-      paralelet,
-      oraret,
       klasat,
       modalTitle,
       KlasaId,
       KlasaName,
-      Paralelja,
-      Orari,
     } = this.state;
     return (
       <div>
@@ -176,8 +142,6 @@ export class Klasa extends Component {
               <tr>
                 <th>KlasaId</th>
                 <th>KlasaName</th>
-                <th>Paralelja</th>
-                <th>Orari</th>
                 <th>Options</th>
               </tr>
             </thead>
@@ -186,8 +150,6 @@ export class Klasa extends Component {
                 <tr key={kl.KlasaId}>
                   <td>{kl.KlasaId}</td>
                   <td>{kl.KlasaName}</td>
-                  <td>{kl.Paralelja}</td>
-                  <td>{kl.Orari}</td>
                   <td>
                     <button
                       type="button"
@@ -261,30 +223,6 @@ export class Klasa extends Component {
                           value={KlasaName}
                           onChange={this.changeKlasaName}
                         />
-                      </div>
-                      <div className="input-group mb-3">
-                        <span className="input-group-text">Paralelja</span>
-                        <select
-                          className="form-select"
-                          onChange={this.changeParalelja}
-                          value={Paralelja}
-                        >
-                          {paralelet.map((paral) => (
-                            <option key={paral.ParaleljaId}>{paral.ParaleljaName}</option>
-                          ))}
-                        </select>
-                      </div>
-                      <div className="input-group mb-4">
-                      <span className="input-group-text">Orari</span>
-                      <select
-                          className="form-select"
-                          onChange={this.changeOrari}
-                          value={Orari}
-                        >
-                          {oraret.map((ora) => (
-                            <option key={ora.OrariId}>{ora.OrariName}</option>
-                          ))}
-                        </select>
                       </div>
                     </div>
                   </div>

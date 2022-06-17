@@ -1,0 +1,65 @@
+body{
+ 
+  background-repeat: no-repeat;
+  background:url("  https://images.wallpapersden.com/image/download/line-light-background_aGVsZpSZmpqtpaSklGdqa2WtZmtlZQ.jpg");
+
+}
+.app{
+  background-repeat: no-repeat;
+  background:url("https://s.w.org/plugins/geopattern-icon/background-per-page_f7f7f7.svg");
+
+}
+.app {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: #f8f9fd;
+  }
+  
+
+
+  
+
+  
+  .titlee {
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-right: 440px;
+ 
+  }
+  
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: row;
+  
+  
+
+}
+  button{
+      display: flex;
+     justify-content: space-around ;
+    
+  }
+  button{
+    background-color: #4beaff;
+  }
+  button {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #6666ff;
+    border: 1px solid #b8bca6;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+ button:hover {
+    background: #868dfb;
+  }

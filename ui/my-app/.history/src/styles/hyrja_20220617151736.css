@@ -1,0 +1,64 @@
+body{
+ 
+  background-repeat: no-repeat, repeat;
+  background-image: url("https://cdn3.vectorstock.com/i/1000x1000/69/57/man-with-pencil-ripped-paper-background-vector-21626957.jpg"), url("https://cdn3.vectorstock.com/i/1000x1000/69/57/man-with-pencil-ripped-paper-background-vector-21626957.jpg");
+}
+.app{
+
+  background:url("https://media.istockphoto.com/photos/office-table-top-view-picture-id1205881259?b=1&k=20&m=1205881259&s=170667a&w=0&h=d7BFTaRxaaUSUdB4Ib4DxQ6kpVckWAcnFof689tPj64=");
+
+}
+.app {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: #f8f9fd;
+  }
+  
+
+
+  
+
+  
+  .titlee {
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-right: 440px;
+ 
+  }
+  
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: row;
+  
+  
+
+}
+  button{
+      display: flex;
+     justify-content: space-around ;
+    
+  }
+  button{
+    background-color: #4beaff;
+  }
+  button {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #6666ff;
+    border: 1px solid #b8bca6;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+ button:hover {
+    background: #868dfb;
+  }

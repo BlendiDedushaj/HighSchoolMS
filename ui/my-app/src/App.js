@@ -9,6 +9,10 @@ import { Klasa } from "./components/Klasa";
 import { Vleresimi } from "./components/Vleresimi";
 import { Nxenesi} from "./components/Nxenesi";
 import { Nota} from "./components/Nota";
+import { Prindi} from "./components/Prindi";
+import { Autobusat} from "./components/Autobusat";
+import { Syllabusi} from "./components/Syllabusi";
+import { Njoftim} from "./components/Njoftim";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Hyrja from "./components/Hyrja";
 import Admin from "./components/Admin";
@@ -38,6 +42,10 @@ function App() {
           <Route path="/klasa" element={<Klasa />} />
           <Route path="/nxenesi" element={<Nxenesi />} />
           <Route path="/nota" element={<Nota />} />
+          <Route path="/prindi" element={<Prindi />} />
+          <Route path="/autobusat" element={<Autobusat />} />
+          <Route path="/syllabusi" element={<Syllabusi />} />
+          <Route path="/njoftim" element={<Njoftim />} />
           <Route path="/vleresimi" element={<Vleresimi />} />
           <Route path="/profesori" element={<Profesori />} />
         </Routes>

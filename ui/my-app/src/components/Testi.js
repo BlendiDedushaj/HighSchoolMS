@@ -86,7 +86,7 @@ export class Testi extends Component {
   }
 
   createClick() {
-    fetch(variables.API_URL + "testet", {
+    fetch(variables.API_URL + "testi", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -113,13 +113,14 @@ export class Testi extends Component {
   }
 
   updateClick() {
-    fetch(variables.API_URL + "testet ", {
+    fetch(variables.API_URL + "testi", {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        TestiId: this.state.TestiId,
         TestiName: this.state.TestiName,
         Profesori: this.state.Profesori,
         Lenda: this.state.Lenda,
@@ -309,7 +310,7 @@ export class Testi extends Component {
                       <div className="input-group mb-3">
                         <span className="input-group-text">Ora</span>
                         <input
-                          type="text"
+                          type="time"
                           className="form-control"
                           value={Ora}
                           onChange={this.changeOra}

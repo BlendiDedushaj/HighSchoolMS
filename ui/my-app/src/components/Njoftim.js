@@ -61,7 +61,7 @@ export class Njoftim extends Component {
   }
 
   createClick() {
-    fetch(variables.API_URL + "njoftimi", {
+    fetch(variables.API_URL + "njoftim", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -86,13 +86,14 @@ export class Njoftim extends Component {
   }
 
   updateClick() {
-    fetch(variables.API_URL + "njoftimi", {
+    fetch(variables.API_URL + "njoftim", {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        NjoftimiId: this.state.NjoftimiId,
         Data: this.state.Data,
         Ora: this.state.Ora,
         Tekst: this.state.Tekst,
@@ -112,7 +113,7 @@ export class Njoftim extends Component {
 
   deleteClick(id) {
     if (window.confirm("A jeni i sigurt?")) {
-      fetch(variables.API_URL + "njoftimi/" + id, {
+      fetch(variables.API_URL + "njoftim/" + id, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -248,7 +249,7 @@ export class Njoftim extends Component {
                       <div className="input-group mb-3">
                         <span className="input-group-text">Ora</span>
                         <input
-                          type="text"
+                          type="time"
                           className="form-control"
                           value={Ora}
                           onChange={this.changeOra}

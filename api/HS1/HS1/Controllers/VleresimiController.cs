@@ -85,7 +85,7 @@ namespace HS1.Controllers
             string query = @"
                             update dbo.Vleresimi
                             set Lenda= @Lenda,
-                            set Profesori= @Profesori,
+                            Profesori= @Profesori,
                             Nxenesi= @Nxenesi,
                             Klasa=@Klasa,
                             Paralelja=@Paralelja,

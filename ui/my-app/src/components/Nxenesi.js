@@ -140,6 +140,7 @@ export class Nxenesi extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        NxenesiId:this.state.NxenesiId,
         NxenesiName: this.state.NxenesiName,
         NxenesiSurname: this.state.NxenesiSurname,
         Klasa: this.state.Klasa,

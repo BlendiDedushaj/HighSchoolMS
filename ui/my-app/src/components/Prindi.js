@@ -59,7 +59,7 @@ export class Prindi extends Component {
 
   editClick(pr) {
     this.setState({
-      modalTitle: "Edit Profesorin",
+      modalTitle: "Edit Prindin",
       PrindiId: pr.PrindiId,
       PrindiName: pr.PrindiName,
       PrindiSurname: pr.PrindiSurname,
@@ -100,6 +100,7 @@ export class Prindi extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        PrindiId:this.state.PrindiId,
         PrindiName: this.state.PrindiName,
         PrindiSurname: this.state.PrindiSurname,
         Nxenesi: this.state.Nxenesi,

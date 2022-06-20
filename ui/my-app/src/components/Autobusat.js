@@ -107,6 +107,7 @@ export class Autobusat extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        AutobusatId:this.state.AutobusatId,
         AutobusatName: this.state.AutobusatName,
         Orari: this.state.Orari,
         OraNisjes: this.state.OraNisjes,
@@ -279,7 +280,7 @@ export class Autobusat extends Component {
                       <div className="input-group mb-3">
                         <span className="input-group-text">OraNisjes</span>
                         <input
-                          type="text"
+                          type="time"
                           className="form-control"
                           value={OraNisjes}
                           onChange={this.changeOraNisjes}
@@ -288,7 +289,7 @@ export class Autobusat extends Component {
                       <div className="input-group mb-3">
                         <span className="input-group-text">OraMberritjes</span>
                         <input
-                          type="text"
+                          type="time"
                           className="form-control"
                           value={OraMberritjes}
                           onChange={this.changeOraMberritjes}

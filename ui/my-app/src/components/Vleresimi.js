@@ -102,7 +102,6 @@ export class Vleresimi extends Component {
   changeOrari = (e) => {
     this.setState({ Orari: e.target.value });
   };
-
   changeNota = (e) => {
     this.setState({ Nota: e.target.value });
   };
@@ -112,7 +111,7 @@ export class Vleresimi extends Component {
 
   addClick() {
     this.setState({
-      modalTitle: "Jep Vleresim",
+      modalTitle: "Shto Vleresimin",
       VleresimiId: 0,
       Lenda: "",
       Profesori: "",
@@ -120,13 +119,14 @@ export class Vleresimi extends Component {
       Klasa: "",
       Paralelja: "",
       Orari: "",
+      Nota: "",
       Data: "",
     });
   }
 
   editClick(vl) {
     this.setState({
-      modalTitle: "Edit Vleresimi",
+      modalTitle: "Edit Vleresimin",
       VleresimiId: vl.VleresimiId,
       Lenda: vl.Lenda,
       Profesori: vl.Profesori,
@@ -134,6 +134,7 @@ export class Vleresimi extends Component {
       Klasa: vl.Klasa,
       Paralelja: vl.Paralelja,
       Orari: vl.Orari,
+      Nota: vl.Nota,
       Data: vl.Data,
     });
   }
@@ -152,6 +153,7 @@ export class Vleresimi extends Component {
         Klasa: this.state.Klasa,
         Paralelja: this.state.Paralelja,
         Orari: this.state.Orari,
+        Nota: this.state.Nota,
         Data: this.state.Data,
 
       }),
@@ -176,12 +178,14 @@ export class Vleresimi extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        VleresimiId:this.state.VleresimiId,
         Lenda: this.state.Lenda,
         Profesori: this.state.Profesori,
         Nxenesi: this.state.Nxenesi,
         Klasa: this.state.Klasa,
         Paralelja: this.state.Paralelja,
         Orari: this.state.Orari,
+        Nota: this.state.Nota,
         Data: this.state.Data,
       }),
     })
@@ -240,7 +244,7 @@ export class Vleresimi extends Component {
       Orari,
       Nota,
       Nxenesi,
-      Data,
+      Data
     } = this.state;
     return (
       <div>

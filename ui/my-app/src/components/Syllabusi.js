@@ -106,6 +106,7 @@ export class Syllabusi extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        SyllabusiId: this.state.SyllabusiId,
         Lenda: this.state.Lenda,
         Profesori: this.state.Profesori,
         Tekst: this.state.Tekst,

@@ -20,7 +20,7 @@ namespace HS1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                            select NjoftimiId, Data , Ora,Tekst from
+                            select NjoftimiId, convert(varchar(10),Data,120) as Data , Ora,Tekst from
                             dbo.Njoftim
                             ";
             DataTable table = new DataTable();
@@ -43,7 +43,7 @@ namespace HS1.Controllers
         public JsonResult Post(Njoftim nj)
         {
             string query = @"
-                            insert into dbo.Njoftim
+                            insert into dbo.Njoftim (Data, Ora, Tekst)
                             values (@Data, @Ora, @Tekst)
                             ";
             DataTable table = new DataTable();
@@ -71,8 +71,8 @@ namespace HS1.Controllers
             string query = @"
                             update dbo.Njoftim
                             set Data= @Data, 
-                             Ora= @Ora,
-                             Tekst= @Tekst
+                            Ora= @Ora,
+                            Tekst= @Tekst
                             where NjoftimiId=@NjoftimiId
                             ";
             DataTable table = new DataTable();

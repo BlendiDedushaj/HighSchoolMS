@@ -24,7 +24,7 @@ namespace HS1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                            select TestiId,TestiName,Profesori,Lenda,Ora,Data
+                            select TestiId,TestiName,Profesori,Lenda,Ora,convert(varchar(10),Data,120) as Data
                             from
                             dbo.Testi
                             ";

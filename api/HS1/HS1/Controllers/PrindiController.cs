@@ -80,7 +80,7 @@ namespace HS1.Controllers
                             update dbo.Prindi
                             set PrindiName= @PrindiName,
                             PrindiSurname= @PrindiSurname,
-                            Nxenesi=@Nxenesi,
+                            Nxenesi=@Nxenesi
                             where PrindiId=@PrindiId
                             ";
             DataTable table = new DataTable();

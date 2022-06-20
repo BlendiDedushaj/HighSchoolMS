@@ -43,7 +43,7 @@ namespace HS1.Controllers
         public JsonResult Post(Orari ora)
         {
             string query = @"
-                            insert into dbo.Orari
+                            insert into dbo.Orari (OrariName)
                             values (@OrariName)
                             ";
             DataTable table = new DataTable();

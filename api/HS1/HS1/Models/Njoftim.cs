@@ -4,7 +4,7 @@
     {
         public int NjoftimiId { get; set; }
         public string Data { get; set; }
-        public string Orari { get; set; }
+        public string Ora { get; set; }
         public string Tekst { get; set; }
     }
 }

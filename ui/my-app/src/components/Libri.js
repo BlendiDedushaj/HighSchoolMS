@@ -15,8 +15,6 @@ export class Libri extends Component {
       LibriId: 0,
       LibriName: "",
       Lenda: "",
-      PhotoFileName: "anonymous.png",
-      PhotoPath: variables.PHOTO_URL,
     };
   }
 
@@ -51,7 +49,6 @@ export class Libri extends Component {
       LibriId: 0,
       LibriName: "",
       Lenda: "",
-      PhotoFileName: "anonymous.png",
     });
   }
 
@@ -61,7 +58,6 @@ export class Libri extends Component {
       LibriId: lib.LibriId,
       LibriName: lib.LibriName,
       Lenda: lib.Lenda,
-      PhotoFileName: lib.PhotoFileName,
     });
   }
 
@@ -75,7 +71,6 @@ export class Libri extends Component {
       body: JSON.stringify({
         LibriName: this.state.LibriName,
         Lenda: this.state.Lenda,
-        PhotoFileName: this.state.PhotoFileName,
       }),
     })
       .then((res) => res.json())
@@ -101,7 +96,6 @@ export class Libri extends Component {
         LibriId: this.state.LibriId,
         LibriName: this.state.LibriName,
         Lenda: this.state.Lenda,
-        PhotoFileName: this.state.PhotoFileName,
       }),
     })
       .then((res) => res.json())
@@ -138,22 +132,6 @@ export class Libri extends Component {
     }
   }
 
-  imageUpload = (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append("file", e.target.files[0], e.target.files[0].name);
-
-    fetch(variables.API_URL + "libri/savefile", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ PhotoFileName: data });
-      });
-  };
-
   render() {
     const {
       lendet,
@@ -162,8 +140,6 @@ export class Libri extends Component {
       LibriId,
       LibriName,
       Lenda,
-      PhotoPath,
-      PhotoFileName,
     } = this.state;
     return (
       <div>
@@ -279,18 +255,6 @@ export class Libri extends Component {
                           ))}
                         </select>
                       </div>
-                    </div>
-                    <div className="p-2 w-50 bd-highlight">
-                      <img width="250px"
-                        height="250px"
-                        src={PhotoPath + PhotoFileName}
-                        alt=""
-                      />
-                      <input
-                        className="m-2"
-                        type="file"
-                        onChange={this.imageUpload}
-                      />
                     </div>
                   </div>
                   {LibriId === 0 ? (

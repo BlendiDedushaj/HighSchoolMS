@@ -26,8 +26,7 @@ namespace HS1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                            select LibriId,LibriName,Lenda,
-                            PhotoFileName
+                            select LibriId,LibriName,Lenda
                             from
                             dbo.Libri
                             ";
@@ -52,8 +51,8 @@ namespace HS1.Controllers
         {
             string query = @"
                             insert into dbo.Libri
-                            (LibriName, Lenda, PhotoFileName)
-                            values (@LibriName, @Lenda, @PhotoFileName)
+                            (LibriName, Lenda)
+                            values (@LibriName, @Lenda)
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -65,7 +64,6 @@ namespace HS1.Controllers
                 {
                     myCommand.Parameters.AddWithValue("@LibriName", lib.LibriName);
                     myCommand.Parameters.AddWithValue("@Lenda", lib.Lenda);
-                    myCommand.Parameters.AddWithValue("@PhotoFileName", lib.PhotoFileName);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -80,8 +78,7 @@ namespace HS1.Controllers
             string query = @"
                             update dbo.Libri
                             set LibriName= @LibriName,
-                            Lenda=@Lenda,
-                            PhotoFileName=@PhotoFileName
+                            Lenda=@Lenda
                             where LibriId=@LibriId
                             ";
             DataTable table = new DataTable();
@@ -95,7 +92,6 @@ namespace HS1.Controllers
                     myCommand.Parameters.AddWithValue("@LibriId", lib.LibriId);
                     myCommand.Parameters.AddWithValue("@LibriName", lib.LibriName);
                     myCommand.Parameters.AddWithValue("@Lenda", lib.Lenda);
-                    myCommand.Parameters.AddWithValue("@PhotoFileName", lib.PhotoFileName);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -128,32 +124,6 @@ namespace HS1.Controllers
                 }
             }
             return new JsonResult("Deleted Successfully");
-        }
-
-        [Route("SaveFile")]
-        [HttpPost]
-
-        public JsonResult SaveFile()
-        {
-            try
-            {
-                var httpRequest = Request.Form;
-                var postedFile = httpRequest.Files[0];
-                string filename = postedFile.FileName;
-                var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
-
-                using (var stream = new FileStream(physicalPath, FileMode.Create))
-                {
-                    postedFile.CopyTo(stream);
-                }
-
-                return new JsonResult(filename);
-            }
-            catch (Exception)
-            {
-
-                return new JsonResult("anonymous.png");
-            }
         }
     }
 }

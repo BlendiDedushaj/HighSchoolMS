@@ -1,13 +1,9 @@
-﻿ using HS1.Models;
+﻿using HS1.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System;
-using System.IO;
-using Microsoft.AspNetCore.Hosting;
-
 
 namespace HS1.Controllers
 {
@@ -16,18 +12,15 @@ namespace HS1.Controllers
     public class NjoftimController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        private readonly IWebHostEnvironment _env;
-        public NjoftimController(IConfiguration configuration, IWebHostEnvironment env)
+        public NjoftimController(IConfiguration configuration)
         {
             _configuration = configuration;
-            _env = env;
         }
         [HttpGet]
         public JsonResult Get()
         {
             string query = @"
-                            select NjoftimiId,Data,Orari,Tekst
-                            from
+                            select NjoftimiId, Data , Ora,Tekst from
                             dbo.Njoftim
                             ";
             DataTable table = new DataTable();
@@ -51,8 +44,7 @@ namespace HS1.Controllers
         {
             string query = @"
                             insert into dbo.Njoftim
-                            (Data,Orari,Tekst)
-                            values (@Data,@Orari,@Tekst)
+                            values (@Data, @Ora, @Tekst)
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -63,7 +55,7 @@ namespace HS1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@Data", nj.Data);
-                    myCommand.Parameters.AddWithValue("@Orari", nj.Orari);
+                    myCommand.Parameters.AddWithValue("@Ora", nj.Ora);
                     myCommand.Parameters.AddWithValue("@Tekst", nj.Tekst);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -78,9 +70,9 @@ namespace HS1.Controllers
         {
             string query = @"
                             update dbo.Njoftim
-                            set Data= @Data,
-                            Orari= @Orari,
-                            Tekst= @Tekst
+                            set Data= @Data, 
+                             Ora= @Ora,
+                             Tekst= @Tekst
                             where NjoftimiId=@NjoftimiId
                             ";
             DataTable table = new DataTable();
@@ -93,7 +85,7 @@ namespace HS1.Controllers
                 {
                     myCommand.Parameters.AddWithValue("@NjoftimiId", nj.NjoftimiId);
                     myCommand.Parameters.AddWithValue("@Data", nj.Data);
-                    myCommand.Parameters.AddWithValue("@Orari", nj.Orari);
+                    myCommand.Parameters.AddWithValue("@Ora", nj.Ora);
                     myCommand.Parameters.AddWithValue("@Tekst", nj.Tekst);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);

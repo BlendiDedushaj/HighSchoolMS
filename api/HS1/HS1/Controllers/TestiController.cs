@@ -24,7 +24,7 @@ namespace HS1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                            select TestiId,Profesori,Lenda,Ora,Data
+                            select TestiId,TestiName,Profesori,Lenda,Ora,Data
                             from
                             dbo.Testi
                             ";
@@ -49,8 +49,8 @@ namespace HS1.Controllers
         {
             string query = @"
                             insert into dbo.Testi
-                            (Profesori,Lenda,Ora,Data)
-                            values (@Profesori,@Lenda,@Ora,@Data)
+                            (TestiName,Profesori,Lenda,Ora,Data)
+                            values (@TestiName,@Profesori,@Lenda,@Ora,@Data)
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -60,6 +60,7 @@ namespace HS1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
+                    myCommand.Parameters.AddWithValue("@TestiName", te.TestiName);
                     myCommand.Parameters.AddWithValue("@Profesori", te.Profesori);
                     myCommand.Parameters.AddWithValue("@Lenda", te.Lenda);
                     myCommand.Parameters.AddWithValue("@Ora", te.Ora);
@@ -77,7 +78,8 @@ namespace HS1.Controllers
         {
             string query = @"
                             update dbo.Testi
-                            set Profesori= @Profesori,
+                            set TestiName=@TestiName, 
+                            Profesori= @Profesori,
                             Lenda= @Lenda,
                             Ora= @Ora,
                             Data= @Data
@@ -92,6 +94,7 @@ namespace HS1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@TestiId", te.TestiId);
+                    myCommand.Parameters.AddWithValue("@TestiName", te.TestiName);
                     myCommand.Parameters.AddWithValue("@Profesori", te.Profesori);
                     myCommand.Parameters.AddWithValue("@Lenda", te.Lenda);
                     myCommand.Parameters.AddWithValue("@Ora", te.Ora);

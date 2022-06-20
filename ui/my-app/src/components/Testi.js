@@ -14,6 +14,7 @@ export class Testi extends Component {
       testet: [],
       modalTitle: "",
       TestiId: 0,
+      TestiName: "",
       Profesori: "",
       Lenda: "",
       Ora: "",
@@ -44,7 +45,9 @@ export class Testi extends Component {
   componentDidMount() {
     this.refreshList();
   }
-
+  changeTestiName = (e) => {
+    this.setState({ TestiName: e.target.value });
+  }
   changeProfesori = (e) => {
     this.setState({ Profesori: e.target.value });
   };
@@ -62,6 +65,7 @@ export class Testi extends Component {
     this.setState({
       modalTitle: "Shto Testin",
       TestiId: 0,
+      TestiName: "",
       Profesori: "",
       Lenda: "",
       Ora: "",
@@ -73,6 +77,7 @@ export class Testi extends Component {
     this.setState({
       modalTitle: "Edit Testin",
       TestiId: te.TestiId,
+      TestiName: te.TestiName,
       Profesori: te.Profesori,
       Lenda: te.Lenda,
       Ora: te.Ora,
@@ -88,6 +93,7 @@ export class Testi extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        TestiName: this.state.TestiName,
         Profesori: this.state.Profesori,
         Lenda: this.state.Lenda,
         Ora: this.state.Ora,
@@ -114,6 +120,7 @@ export class Testi extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        TestiName: this.state.TestiName,
         Profesori: this.state.Profesori,
         Lenda: this.state.Lenda,
         Ora: this.state.Ora,
@@ -161,6 +168,7 @@ export class Testi extends Component {
       lendet,
       modalTitle,
       TestiId,
+      TestiName,
       Profesori,
       Lenda,
       Ora,
@@ -183,6 +191,7 @@ export class Testi extends Component {
             <thead>
               <tr>
                 <th>TestiId</th>
+                <th>TestiName</th>
                 <th>Profesori</th>
                 <th>Lenda</th>
                 <th>Ora</th>
@@ -194,6 +203,7 @@ export class Testi extends Component {
               {testet.map((te) => (
                 <tr key={te.TestiId}>
                   <td>{te.TestiId}</td>
+                  <td>{te.TestiName}</td>
                   <td>{te.Profesori}</td>
                   <td>{te.Lenda}</td>
                   <td>{te.Ora}</td>
@@ -263,6 +273,15 @@ export class Testi extends Component {
                 <div className="modal-body">
                   <div className="d-flex flex-row bd-highlight mb-3">
                     <div className="p-2 w-50 bd-highlight">
+                    <div className="input-group mb-3">
+                        <span className="input-group-text">TestiName</span>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={TestiName}
+                          onChange={this.changeTestiName}
+                        />
+                      </div>
                     <div className="input-group mb-3">
                         <span className="input-group-text">Profesori</span>
                         <select

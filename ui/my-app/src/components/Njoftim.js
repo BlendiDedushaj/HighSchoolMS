@@ -9,23 +9,16 @@ export class Njoftim extends Component {
     super(props);
 
     this.state = {
-      oraret: [],
       njoftimet: [],
       modalTitle: "",
       NjoftimiId: 0,
       Data: "",
-      Orari: "",
+      Ora: "",
       Tekst: "",
     };
   }
 
   refreshList() {
-    fetch(variables.API_URL + "orari")
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({ oraret: data });
-      });
-
     fetch(variables.API_URL + "njoftim")
       .then((response) => response.json())
       .then((data) => {
@@ -40,8 +33,8 @@ export class Njoftim extends Component {
   changeData = (e) => {
     this.setState({ Data: e.target.value });
   };
-  changeOrari = (e) => {
-    this.setState({ Orari: e.target.value });
+  changeOra = (e) => {
+    this.setState({ Ora: e.target.value });
   };
   changeTekst = (e) => {
     this.setState({ Tekst: e.target.value });
@@ -52,7 +45,7 @@ export class Njoftim extends Component {
       modalTitle: "Shto Njoftim",
       NjoftimiId: 0,
       Data: "",
-      Orari: "",
+      Ora: "",
       Tekst: "",
     });
   }
@@ -62,7 +55,7 @@ export class Njoftim extends Component {
       modalTitle: "Edit Njoftimin",
       NjoftimiId: nj.NjoftimiId,
       Data: nj.Data,
-      Orari: nj.Orari,
+      Ora: nj.Ora,
       Tekst: nj.Tekst,
     });
   }
@@ -76,7 +69,7 @@ export class Njoftim extends Component {
       },
       body: JSON.stringify({
         Data: this.state.Data,
-        Orari: this.state.Orari,
+        Ora: this.state.Ora,
         Tekst: this.state.Tekst,
       }),
     })
@@ -101,7 +94,7 @@ export class Njoftim extends Component {
       },
       body: JSON.stringify({
         Data: this.state.Data,
-        Orari: this.state.Orari,
+        Ora: this.state.Ora,
         Tekst: this.state.Tekst,
       }),
     })
@@ -141,12 +134,11 @@ export class Njoftim extends Component {
 
   render() {
     const {
-      oraret,
       njoftimet,
       modalTitle,
       NjoftimiId,
       Data,
-      Orari,
+      Ora,
       Tekst,
     } = this.state;
     return (
@@ -167,7 +159,7 @@ export class Njoftim extends Component {
               <tr>
                 <th>NjoftimiId</th>
                 <th>Data</th>
-                <th>Orari</th>
+                <th>Ora</th>
                 <th>Tekst</th>
                 <th>Options</th>
               </tr>
@@ -177,7 +169,7 @@ export class Njoftim extends Component {
                 <tr key={nj.NjoftimiId}>
                   <td>{nj.NjoftimiId}</td>
                   <td>{nj.Data}</td>
-                  <td>{nj.Orari}</td>
+                  <td>{nj.Ora}</td>
                   <td>{nj.Tekst}</td>
                   <td>
                     <button
@@ -254,16 +246,13 @@ export class Njoftim extends Component {
                         />
                       </div>
                       <div className="input-group mb-3">
-                        <span className="input-group-text">Orari</span>
-                        <select
-                          className="form-select"
-                          onChange={this.changeOrari}
-                          value={Orari}
-                        >
-                          {oraret.map((ora) => (
-                            <option key={ora.OrariId}>{ora.OrariName}</option>
-                          ))}
-                        </select>
+                        <span className="input-group-text">Ora</span>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={Ora}
+                          onChange={this.changeOra}
+                        />
                       </div>
                       <div className="input-group mb-3">
                         <span className="input-group-text">Tekst</span>

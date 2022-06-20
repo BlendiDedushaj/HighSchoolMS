@@ -1,4 +1,4 @@
-﻿using HS1.Models;
+﻿ using HS1.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -77,10 +77,10 @@ namespace HS1.Controllers
         public JsonResult Put(Njoftim nj)
         {
             string query = @"
-                            update dbo.Syllabusi
-                            set Data= @Orari,
+                            update dbo.Njoftim
+                            set Data= @Data,
                             Orari= @Orari,
-                            Tekst= @Tekst,
+                            Tekst= @Tekst
                             where NjoftimiId=@NjoftimiId
                             ";
             DataTable table = new DataTable();
@@ -91,6 +91,7 @@ namespace HS1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
+                    myCommand.Parameters.AddWithValue("@NjoftimiId", nj.NjoftimiId);
                     myCommand.Parameters.AddWithValue("@Data", nj.Data);
                     myCommand.Parameters.AddWithValue("@Orari", nj.Orari);
                     myCommand.Parameters.AddWithValue("@Tekst", nj.Tekst);

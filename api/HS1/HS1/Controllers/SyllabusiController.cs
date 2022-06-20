@@ -26,7 +26,7 @@ namespace HS1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                            select SyllabusiId,Lenda,Profesori
+                            select SyllabusiId,Lenda,Profesori,Tekst
                             from
                             dbo.Syllabusi
                             ";
@@ -51,8 +51,8 @@ namespace HS1.Controllers
         {
             string query = @"
                             insert into dbo.Syllabusi
-                            (Lenda,Profesori)
-                            values (@Lenda,@Profesori)
+                            (Lenda,Profesori,Tekst)
+                            values (@Lenda,@Profesori,@Tekst)
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");
@@ -64,6 +64,7 @@ namespace HS1.Controllers
                 {
                     myCommand.Parameters.AddWithValue("@Lenda", sy.Lenda);
                     myCommand.Parameters.AddWithValue("@Profesori", sy.Profesori);
+                    myCommand.Parameters.AddWithValue("@Tekst", sy.Tekst);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -79,6 +80,7 @@ namespace HS1.Controllers
                             update dbo.Syllabusi
                             set Lenda= @Lenda,
                             Profesori= @Profesori,
+                            Tekst= @Tekst
                             where SyllabusiId=@SyllabusiId
                             ";
             DataTable table = new DataTable();
@@ -89,8 +91,10 @@ namespace HS1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
+                    myCommand.Parameters.AddWithValue("@SyllabusiId", sy.SyllabusiId);
                     myCommand.Parameters.AddWithValue("@Lenda", sy.Lenda);
                     myCommand.Parameters.AddWithValue("@Profesori", sy.Profesori);
+                    myCommand.Parameters.AddWithValue("@Tekst", sy.Tekst);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();

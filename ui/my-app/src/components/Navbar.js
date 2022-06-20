@@ -104,6 +104,13 @@ function Navbar() {
               </Link>
             </nav>
           </li>
+          <li className="nav-item- m-1">
+            <nav className="btn btn-light btn-outline-primary">
+              <Link to="/testi">
+              <span class="nameLink">Testi</span>
+              </Link>
+            </nav>
+          </li>
           </ul>
         </nav>
       </div>

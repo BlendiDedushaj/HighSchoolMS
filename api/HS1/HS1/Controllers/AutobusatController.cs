@@ -82,7 +82,7 @@ namespace HS1.Controllers
                             set AutobusatName= @AutobusatName,
                             Orari= @Orari,
                             OraNisjes= @OraNisjes,
-                            OraMberritjes= @OraMberritjes,
+                            OraMberritjes= @OraMberritjes
                             where AutobusatId=@AutobusatId
                             ";
             DataTable table = new DataTable();
@@ -93,6 +93,7 @@ namespace HS1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
+                    myCommand.Parameters.AddWithValue("@AutobusatId", auto.AutobusatId);
                     myCommand.Parameters.AddWithValue("@AutobusatName", auto.AutobusatName);
                     myCommand.Parameters.AddWithValue("@Orari", auto.Orari);
                     myCommand.Parameters.AddWithValue("@OraNisjes", auto.OraNisjes);

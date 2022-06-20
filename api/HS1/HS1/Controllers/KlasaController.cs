@@ -75,7 +75,7 @@ namespace HS1.Controllers
             string query = @"
                             update dbo.Klasa
                             set KlasaName= @KlasaName
-                            where ProfesoriId=@ProfesoriId
+                            where KlasaId=@KlasaId
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("MyAppCon");

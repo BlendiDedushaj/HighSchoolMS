@@ -1,35 +1,43 @@
 import React, { Component } from "react";
 import { variables } from "../utils/Variables.js";
 import Navbar from "./Navbar.js";
-import "../styles/njoftim.css";
+import "../styles/testi.css";
 
 
-export class Njoftim extends Component {
+export class Testi extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      oraret: [],
-      njoftimet: [],
+      profesoret: [],
+      lendet: [],
+      testet: [],
       modalTitle: "",
-      NjoftimiId: 0,
+      TestiId: 0,
+      Profesori: "",
+      Lenda: "",
+      Ora: "",
       Data: "",
-      Orari: "",
-      Tekst: "",
     };
   }
 
   refreshList() {
-    fetch(variables.API_URL + "orari")
+    fetch(variables.API_URL + "profesori")
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ oraret: data });
+        this.setState({ profesoret: data });
       });
 
-    fetch(variables.API_URL + "njoftim")
+    fetch(variables.API_URL + "lenda")
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ njoftimet: data });
+        this.setState({ lendet: data });
+      });
+
+    fetch(variables.API_URL + "testi")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ testet: data });
       });
   }
 
@@ -37,47 +45,53 @@ export class Njoftim extends Component {
     this.refreshList();
   }
 
+  changeProfesori = (e) => {
+    this.setState({ Profesori: e.target.value });
+  };
+  changeLenda = (e) => {
+    this.setState({ Lenda: e.target.value });
+  };
+  changeOra = (e) => {
+    this.setState({ Ora: e.target.value });
+  };
   changeData = (e) => {
     this.setState({ Data: e.target.value });
-  };
-  changeOrari = (e) => {
-    this.setState({ Orari: e.target.value });
-  };
-  changeTekst = (e) => {
-    this.setState({ Tekst: e.target.value });
   };
 
   addClick() {
     this.setState({
-      modalTitle: "Shto Njoftim",
-      NjoftimiId: 0,
+      modalTitle: "Shto Testin",
+      TestiId: 0,
+      Profesori: "",
+      Lenda: "",
+      Ora: "",
       Data: "",
-      Orari: "",
-      Tekst: "",
     });
   }
 
-  editClick(nj) {
+  editClick(te) {
     this.setState({
-      modalTitle: "Edit Njoftimin",
-      NjoftimiId: nj.NjoftimiId,
-      Data: nj.Data,
-      Orari: nj.Orari,
-      Tekst: nj.Tekst,
+      modalTitle: "Edit Testin",
+      TestiId: te.TestiId,
+      Profesori: te.Profesori,
+      Lenda: te.Lenda,
+      Ora: te.Ora,
+      Data: te.Data,
     });
   }
 
   createClick() {
-    fetch(variables.API_URL + "njoftimi", {
+    fetch(variables.API_URL + "testet", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        Profesori: this.state.Profesori,
+        Lenda: this.state.Lenda,
+        Ora: this.state.Ora,
         Data: this.state.Data,
-        Orari: this.state.Orari,
-        Tekst: this.state.Tekst,
       }),
     })
       .then((res) => res.json())
@@ -93,16 +107,17 @@ export class Njoftim extends Component {
   }
 
   updateClick() {
-    fetch(variables.API_URL + "njoftimi", {
+    fetch(variables.API_URL + "testet ", {
       method: "PUT",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        Profesori: this.state.Profesori,
+        Lenda: this.state.Lenda,
+        Ora: this.state.Ora,
         Data: this.state.Data,
-        Orari: this.state.Orari,
-        Tekst: this.state.Tekst,
       }),
     })
       .then((res) => res.json())
@@ -119,7 +134,7 @@ export class Njoftim extends Component {
 
   deleteClick(id) {
     if (window.confirm("A jeni i sigurt?")) {
-      fetch(variables.API_URL + "njoftimi/" + id, {
+      fetch(variables.API_URL + "testet/" + id, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -141,18 +156,20 @@ export class Njoftim extends Component {
 
   render() {
     const {
-      oraret,
-      njoftimet,
+      testet,
+      profesoret,
+      lendet,
       modalTitle,
-      NjoftimiId,
+      TestiId,
+      Profesori,
+      Lenda,
+      Ora,
       Data,
-      Orari,
-      Tekst,
     } = this.state;
     return (
     <div>
         <Navbar />
-        <div class="NjoftimApp">
+        <div class="TestiApp">
           <button
             type="button"
             className="btn btn-primary m-2 float-end"
@@ -160,32 +177,34 @@ export class Njoftim extends Component {
             data-bs-target="#exampleModal"
             onClick={() => this.addClick()}
           >
-            Shto Njoftimin
+            Shto Testet
           </button>
           <table className="table table-striped">
             <thead>
               <tr>
-                <th>NjoftimiId</th>
+                <th>TestiId</th>
+                <th>Profesori</th>
+                <th>Lenda</th>
+                <th>Ora</th>
                 <th>Data</th>
-                <th>Orari</th>
-                <th>Tekst</th>
                 <th>Options</th>
               </tr>
             </thead>
             <tbody>
-              {njoftimet.map((nj) => (
-                <tr key={nj.NjoftimiId}>
-                  <td>{nj.NjoftimiId}</td>
-                  <td>{nj.Data}</td>
-                  <td>{nj.Orari}</td>
-                  <td>{nj.Tekst}</td>
+              {testet.map((te) => (
+                <tr key={te.TestiId}>
+                  <td>{te.TestiId}</td>
+                  <td>{te.Profesori}</td>
+                  <td>{te.Lenda}</td>
+                  <td>{te.Ora}</td>
+                  <td>{te.Data}</td>
                   <td>
                     <button
                       type="button"
                       className="btn btn-light mr-1"
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModal"
-                      onClick={() => this.editClick(nj)}
+                      onClick={() => this.editClick(te)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +224,7 @@ export class Njoftim extends Component {
                     <button
                       type="button"
                       className="btn btn-light mr-1"
-                      onClick={() => this.deleteClick(nj.NjoftimiId)}
+                      onClick={() => this.deleteClick(te.TestiId)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -245,6 +264,39 @@ export class Njoftim extends Component {
                   <div className="d-flex flex-row bd-highlight mb-3">
                     <div className="p-2 w-50 bd-highlight">
                     <div className="input-group mb-3">
+                        <span className="input-group-text">Profesori</span>
+                        <select
+                          className="form-select"
+                          onChange={this.changeProfesori}
+                          value={Profesori}
+                        >
+                          {profesoret.map((prof) => (
+                            <option key={prof.ProfesoriId}>{prof.ProfesoriName}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="input-group mb-3">
+                        <span className="input-group-text">Lenda</span>
+                        <select
+                          className="form-select"
+                          onChange={this.changeLenda}
+                          value={Lenda}
+                        >
+                          {lendet.map((len) => (
+                            <option key={len.LendaId}>{len.LendaName}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="input-group mb-3">
+                        <span className="input-group-text">Ora</span>
+                        <input
+                          type="text"
+                          className="form-control"
+                          value={Ora}
+                          onChange={this.changeOra}
+                        />
+                      </div>
+                      <div className="input-group mb-3">
                         <span className="input-group-text">Data</span>
                         <input
                           type="date"
@@ -253,29 +305,8 @@ export class Njoftim extends Component {
                           onChange={this.changeData}
                         />
                       </div>
-                      <div className="input-group mb-3">
-                        <span className="input-group-text">Orari</span>
-                        <select
-                          className="form-select"
-                          onChange={this.changeOrari}
-                          value={Orari}
-                        >
-                          {oraret.map((ora) => (
-                            <option key={ora.OrariId}>{ora.OrariName}</option>
-                          ))}
-                        </select>
-                      </div>
-                      <div className="input-group mb-3">
-                        <span className="input-group-text">Tekst</span>
-                        <input
-                          type="text"
-                          className="form-control"
-                          value={Tekst}
-                          onChange={this.changeTekst}
-                        />
-                      </div>
                   </div>
-                  {NjoftimiId === 0 ? (
+                  {TestiId === 0 ? (
                     <button
                       type="button"
                       className="btn btn-primary float-start"
@@ -285,7 +316,7 @@ export class Njoftim extends Component {
                     </button>
                   ) : null}
 
-                  {NjoftimiId !== 0 ? (
+                  {TestiId !== 0 ? (
                     <button
                       type="button"
                       className="btn btn-primary float-start"

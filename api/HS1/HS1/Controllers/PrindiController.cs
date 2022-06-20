@@ -91,6 +91,7 @@ namespace HS1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
+                    myCommand.Parameters.AddWithValue("@PrindiId", pr.PrindiId);
                     myCommand.Parameters.AddWithValue("@PrindiName", pr.PrindiName);
                     myCommand.Parameters.AddWithValue("@PrindiSurname", pr.PrindiSurname);
                     myCommand.Parameters.AddWithValue("@Nxenesi", pr.Nxenesi);

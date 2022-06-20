@@ -13,6 +13,7 @@ import { Prindi} from "./components/Prindi";
 import { Autobusat} from "./components/Autobusat";
 import { Syllabusi} from "./components/Syllabusi";
 import { Njoftim} from "./components/Njoftim";
+import { Testi} from "./components/Testi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Hyrja from "./components/Hyrja";
 import Admin from "./components/Admin";
@@ -46,6 +47,7 @@ function App() {
           <Route path="/autobusat" element={<Autobusat />} />
           <Route path="/syllabusi" element={<Syllabusi />} />
           <Route path="/njoftim" element={<Njoftim />} />
+          <Route path="/testi" element={<Testi />} />
           <Route path="/vleresimi" element={<Vleresimi />} />
           <Route path="/profesori" element={<Profesori />} />
         </Routes>

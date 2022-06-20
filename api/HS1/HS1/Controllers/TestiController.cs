@@ -24,7 +24,7 @@ namespace HS1.Controllers
         public JsonResult Get()
         {
             string query = @"
-                            select TestiId,Profesori,Profesori,Ora,Data
+                            select TestiId,Profesori,Lenda,Ora,Data
                             from
                             dbo.Testi
                             ";
@@ -49,7 +49,7 @@ namespace HS1.Controllers
         {
             string query = @"
                             insert into dbo.Testi
-                            ()
+                            (Profesori,Lenda,Ora,Data)
                             values (@Profesori,@Lenda,@Ora,@Data)
                             ";
             DataTable table = new DataTable();
@@ -78,9 +78,9 @@ namespace HS1.Controllers
             string query = @"
                             update dbo.Testi
                             set Profesori= @Profesori,
-                            Lenda= @Lenda
-                                Ora= @Ora
-                             Data= @Data
+                            Lenda= @Lenda,
+                            Ora= @Ora,
+                            Data= @Data
                             where TestiId=@TestiId
                             ";
             DataTable table = new DataTable();

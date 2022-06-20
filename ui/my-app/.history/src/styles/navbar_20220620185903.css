@@ -6,7 +6,9 @@
     flex: 1;
 
 }
-
+nav{
+    background-color: red;
+}
 
 nav {
     display: flex;

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 import "../styles/login.css";
 
-function Navbar() {
+function NavbarProf() {
   return (
     <div>
       <div class="navbarApp">

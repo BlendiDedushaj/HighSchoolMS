@@ -10,15 +10,15 @@ function Login() {
   // User Login info
   const database = [
     {
-      username: "a@student.com",
+      username: "a@prind.com",
       password: "Pass12345",
     },
     {
-      username: "b@student.com",
+      username: "b@prind.com",
       password: "Pass12345",
     },
     {
-      username: "c@student.com",
+      username: "c@prind.com",
       password: "Pass12345",
     },
   ];
@@ -60,19 +60,19 @@ function Login() {
   // JSX code for login form
   const renderForm = (
     <div>
-    <img src="https://t3.ftcdn.net/jpg/03/77/13/94/360_F_377139493_Vta4MPTZUsQK6p5TXUkL3Xc6pqFYRxHm.jpg" alt="Girl in a jacket" width="400" height="250"></img>
+    <img src="https://getlogo.net/wp-content/uploads/2020/11/parents-logo-vector.png" alt="Girl in a jacket" width="400" height="250"></img>
+
     <div className="form">
-   
 
       <form onSubmit={handleSubmit}>
-        <div className="group">
+        <div className="grouppp">
         <input type="text" name="uname" required/>
           <label>Username </label>
           <span class="highlight"></span>
           <span class="bar"></span>
           {renderErrorMessage("uname")}
         </div>
-        <div className="group">
+        <div className="grouppp">
         <input type="password" name="pass" required />
         <span class="highlight"></span>
       <span class="bar"></span>
@@ -93,9 +93,10 @@ function Login() {
   return (
     <div className="applog">
       <div className="login-form">
+      <br></br><br></br>
         <div className="title"></div>
         {isSubmitted ? (
-          <div className="logged">
+          <div>
           <p>You are successfully logged in</p>
           <img src="          https://media.istockphoto.com/vectors/check-mark-valid-seal-icon-white-squared-tick-with-shadow-in-blue-vector-id1167940992?b=1&k=20&m=1167940992&s=170667a&w=0&h=sBtOAwd1z_pljg003VNErmJrJpS-1uVzFecCsVwnxkw=
           " alt="Girl in a jacket" width="400" height="400" className="im"></img>

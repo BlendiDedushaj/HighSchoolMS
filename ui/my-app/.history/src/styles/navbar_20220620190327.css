@@ -1,7 +1,7 @@
 .navbarApp {
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     flex: 1;
 

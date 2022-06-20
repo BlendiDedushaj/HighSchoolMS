@@ -2,23 +2,23 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/login.css";
 
-function Login() {
+function Admin() {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // User Login info
+  // User Admin info
   const database = [
     {
-      username: "a@student.com",
+      username: "a@admin.com",
       password: "Pass12345",
     },
     {
-      username: "b@student.com",
+      username: "b@admin.com",
       password: "Pass12345",
     },
     {
-      username: "c@student.com",
+      username: "c@admin.com",
       password: "Pass12345",
     },
   ];
@@ -34,7 +34,7 @@ function Login() {
 
     var { uname, pass } = document.forms[0];
 
-    // Find user login info
+    // Find user Admin info
     const userData = database.find((user) => user.username === uname.value);
 
     // Compare user info
@@ -57,22 +57,22 @@ function Login() {
       <div className="error">{errorMessages.message}</div>
     );
 
-  // JSX code for login form
+  // JSX code for Admin form
   const renderForm = (
     <div>
-    <img src="https://t3.ftcdn.net/jpg/03/77/13/94/360_F_377139493_Vta4MPTZUsQK6p5TXUkL3Xc6pqFYRxHm.jpg" alt="Girl in a jacket" width="400" height="250"></img>
+    <img src="https://i.pinimg.com/originals/d0/53/f2/d053f2394d420d8d3712046f4e8f80cc.jpg" alt="Girl in a jacket" width="400" height="250"></img>
+
     <div className="form">
-   
 
       <form onSubmit={handleSubmit}>
-        <div className="group">
+        <div className="groupp">
         <input type="text" name="uname" required/>
           <label>Username </label>
           <span class="highlight"></span>
           <span class="bar"></span>
           {renderErrorMessage("uname")}
         </div>
-        <div className="group">
+        <div className="groupp">
         <input type="password" name="pass" required />
         <span class="highlight"></span>
       <span class="bar"></span>
@@ -93,12 +93,15 @@ function Login() {
   return (
     <div className="applog">
       <div className="login-form">
-        <div className="title"></div>
+      <br></br><br></br>
+        <div className="title-admin"></div>
         {isSubmitted ? (
           <div className="logged">
           <p>You are successfully logged in</p>
           <img src="          https://media.istockphoto.com/vectors/check-mark-valid-seal-icon-white-squared-tick-with-shadow-in-blue-vector-id1167940992?b=1&k=20&m=1167940992&s=170667a&w=0&h=sBtOAwd1z_pljg003VNErmJrJpS-1uVzFecCsVwnxkw=
           " alt="Girl in a jacket" width="400" height="400" className="im"></img>
+
+     
             <Link to="/Lenda">Click to proceed</Link>
           </div>
         ) : (
@@ -109,4 +112,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Admin;

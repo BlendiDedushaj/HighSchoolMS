@@ -93,9 +93,9 @@ function Login() {
   return (
     <div className="applog">
       <div className="login-form">
-        <div className="title"></div>
+        <div className="title">LogIn Student</div>
         {isSubmitted ? (
-          <div className="logged">
+          <div>
           <p>You are successfully logged in</p>
           <img src="          https://media.istockphoto.com/vectors/check-mark-valid-seal-icon-white-squared-tick-with-shadow-in-blue-vector-id1167940992?b=1&k=20&m=1167940992&s=170667a&w=0&h=sBtOAwd1z_pljg003VNErmJrJpS-1uVzFecCsVwnxkw=
           " alt="Girl in a jacket" width="400" height="400" className="im"></img>

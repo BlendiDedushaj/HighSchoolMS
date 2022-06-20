@@ -1,6 +1,7 @@
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import "../styles/navbar.css";
-import "../styles/login.css";
 
 function Navbar() {
   return (

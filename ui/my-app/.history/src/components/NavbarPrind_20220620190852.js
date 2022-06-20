@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 import "../styles/login.css";
 
-function Navbar() {
+function NavbarPrind() {
   return (
     <div>
       <div class="navbarApp">
@@ -116,4 +116,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavbarPrind;

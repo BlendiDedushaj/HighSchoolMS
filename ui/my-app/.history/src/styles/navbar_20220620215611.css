@@ -1,0 +1,30 @@
+.navbarApp {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+
+}
+
+.active{
+    background-color: blue;
+}
+nav {
+    display: flex;
+    flex:1;
+    justify-content: space-between;
+
+}
+
+ul {
+    display: flex;
+    flex:1;
+    justify-content: space-around;
+}
+
+.nameLink:hover {
+    color: white;
+}
+
+

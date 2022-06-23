@@ -1,0 +1,12 @@
+.VleresimiApp {
+    margin: 100px;
+}
+.back{
+    display: flex;
+   
+    justify-content: flex-end;
+    
+}
+.bback{
+    background-color: antiquewhite;
+}

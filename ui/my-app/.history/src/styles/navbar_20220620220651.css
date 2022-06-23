@@ -1,0 +1,30 @@
+.btn btn-light btn-outline-primary{
+    background-color: red;
+}
+.navbarApp {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+
+}
+
+nav {
+    display: flex;
+    flex:1;
+    justify-content: space-between;
+
+}
+
+ul {
+    display: flex;
+    flex:1;
+    justify-content: space-around;
+}
+
+.nameLink:hover {
+    color: white;
+}
+
+

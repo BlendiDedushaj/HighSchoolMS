@@ -1,0 +1,13 @@
+.VleresimiApp {
+    margin: 100px;
+}
+.back{
+    display: flex;
+   
+    justify-content: flex-end;
+    
+}
+.bback{
+    background-color: rgb(0, 32, 129);
+    border-radius: 30px;
+}

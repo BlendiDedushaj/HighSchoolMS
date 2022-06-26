@@ -14,42 +14,22 @@ function NavbarProf() {
     <li><i class="fas fa-home icon"></i>  <Link to="/">Log out</Link></li>
     <li><i class="fas fa-home icon"></i> Navbar
     <ul>
-    <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/lenda">Lenda</Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/profesori">Profesori</Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/libri">
-    Libri
-    </Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i> <Link to="/orari">
-    Orari
-    </Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/paralelja">
-    Paralelja
-    </Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/klasa">
-    Klasa
-    </Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/nxenesi">
-    Nxenesi
+    <li><i class="fas fa-pencil-alt icon"></i>   <Link to="/syllabusi">
+    Syllabuset
     </Link></li>
     <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/vleresimi">
-    Vleresimi
-    </Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/prindi">
-    Prindi
-    </Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i> <Link to="/autobusat">
-    Autobusat
-    </Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i>   <Link to="/syllabusi">
-    Syllabusi
-    </Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i>   <Link to="/njoftim">
-    Njoftim
+    Vleresimet
     </Link></li>
     <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/testi">
-    Testi
+    Testet
     </Link></li>
-    <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/kontaktprind">
+    <li><i class="fas fa-pencil-alt icon"></i>   <Link to="/njoftim">
+    Njoftimet
+    </Link></li>
+    <li><i class="fas fa-pencil-alt icon"></i> <Link to="/autobusatt">
+    Autobusat
+    </Link></li>
+    <li><i class="fas fa-pencil-alt icon"></i>  <Link to="/kontaktprindd">
     KontaktPrind
     </Link></li>
     </ul>

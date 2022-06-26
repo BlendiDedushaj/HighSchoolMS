@@ -94,12 +94,8 @@ function Login() {
     <div className="applog">
       <div className="login-form">
       <br></br><br></br>
-        <div className="title"></div>
-        {isSubmitted ? (
+      {isSubmitted ? (
           <div className="logged">
-          <p>You are successfully logged in</p>
-          <img src="          https://media.istockphoto.com/vectors/check-mark-valid-seal-icon-white-squared-tick-with-shadow-in-blue-vector-id1167940992?b=1&k=20&m=1167940992&s=170667a&w=0&h=sBtOAwd1z_pljg003VNErmJrJpS-1uVzFecCsVwnxkw=
-          " alt="Girl in a jacket" width="400" height="400" className="im"></img>
             <Link to="/NavbarProf">Click to proceed</Link>
           </div>
         ) : (
